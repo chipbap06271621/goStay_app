@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="goStay.HotelBooking"
+             Title="HotelBooking">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Grid ColumnSpacing="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border StrokeShape="RoundRectangle 10,10,10,10"
+                        StrokeThickness="0">
+                    <Image Source="img1.png"/>
+                </Border>
+                <VerticalStackLayout Grid.Column="1" Margin="0,15,0,0" Spacing="5">
+                    <Label Text="Altara Suites Đà Nẵng bty AHG"
+                               FontAttributes="Bold"/>
+                    <Label Text="&#xf005; &#xf005; &#xf005; &#xf005; &#xf005;"
+                               FontFamily="FontSolid"
+                               TextColor="#ff8900"/>
+                </VerticalStackLayout>
+            </Grid>
+            <Label HeightRequest="1" Background="{DynamicResource Gray100}"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <VerticalStackLayout>
+                    <Label Text="Nhận phòng"
+                           FontSize="12"
+                           TextColor="#666"/>
+                    <Label Text="Thứ 6, 21 Tháng 10" />
+                    <Label Text="14:00"
+                           FontSize="12"
+                           TextColor="#666"/>
+                </VerticalStackLayout>
+                <Border Grid.Column="1"
+                        HeightRequest="40"
+                        WidthRequest="40"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        StrokeThickness=".5"
+                        StrokeShape="RoundRectangle 40,40,40,40">
+                    <HorizontalStackLayout VerticalOptions="Center"
+                                           HorizontalOptions="Center">
+                        <Label Text="3"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"/>
+                        <Label Text="&#xf186;"
+                               FontFamily="FontRegular"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"/>
+                    </HorizontalStackLayout>
+                </Border>
+                <VerticalStackLayout Grid.Column="2"
+                                     HorizontalOptions="Start">
+                    <Label Text="Trả phòng"
+                           FontSize="12"
+                           TextColor="#666"/>
+                    <Label Text="Thứ 3, 26 Tháng 10" />
+                    <Label Text="12:00"
+                           FontSize="12"
+                           TextColor="#666"/>
+                </VerticalStackLayout>
+            </Grid>
+            <Label HeightRequest="1" Background="{DynamicResource Gray100}"/>
+            <VerticalStackLayout>
+                <Label Text="Số phòng:"
+                       FontAttributes="Bold"/>
+                <Label Text="2 phòng x Bungalow Ocean Front"/>
+                <Label Text="Số khách:"
+                       FontAttributes="Bold"
+                       Margin="0,10,0,0"/>
+                <Label Text="2 phòng x 4 Người lớn, 4 Trẻ em"/>
+            </VerticalStackLayout>
+            <Label HeightRequest="2" Background="{DynamicResource Gray100}"/>
+            <Label Text="Chi tiết phòng"
+                   FontAttributes="Bold"
+                   FontSize="16"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="20" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Label Text="&#xf183;"
+                       FontFamily="FontSolid"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Start" />
+                <VerticalStackLayout Grid.Column="1">
+                    <Label Text="2 Người lớn"
+                           TextColor="#666"
+                           VerticalOptions="Start"
+                           FontSize="12"/>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="&#xf111;"
+                               FontFamily="FontSolid"
+                               FontSize="4"
+                               TextColor="#666"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+                        <Label Grid.Column="1"
+                               Text="Sức chứa tối đa của phòng 3"
+                               TextColor="#666"
+                               VerticalOptions="Start"
+                               FontSize="12"/>
+                        <Label Text="&#xf111;"
+                               Grid.Row="1"
+                               FontFamily="FontSolid"
+                               FontSize="4"
+                               TextColor="#666"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+                        <Label Text="Số khách tiêu chuẩn 2"
+                               Grid.Row="1"
+                               Grid.Column="1"
+                               TextColor="#666"
+                               VerticalOptions="Start"
+                               FontSize="12"/>
+                        <Label Text="&#xf111;"
+                               Grid.Row="2"
+                               FontFamily="FontSolid"
+                               FontSize="4"
+                               TextColor="#666"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+                        <Label Grid.Row="2"
+                               Grid.Column="1"
+                               Text="Cho phép ở thêm 1 trẻ em thỏa mãn 3 khách tối đa có  thể mất thêm phí."
+                               TextColor="#666"
+                               VerticalOptions="Start"
+                               FontSize="12"/>
+                    </Grid>
+                </VerticalStackLayout>
+                <Label Grid.Row="1"
+                       Text="&#xf1eb;"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center" 
+                       FontFamily="FontSolid"/>
+                <Label Grid.Row="1"
+                       Grid.Column="1"
+                       Text="Wifi miễn phí"
+                       TextColor="#666"
+                       FontSize="12"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Center" />
+                <Label Grid.Row="2"
+                       Text="&#xf236;"
+                       TextColor="#666"
+                       FontSize="12"
+                       FontFamily="FontSolid"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center" />
+                <Label Grid.Column="2"
+                       Grid.Row="2"
+                       Text="1 giường lớn"
+                       TextColor="#666"
+                       FontSize="12"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Center" />
+                <Label Grid.Row="3"
+                       Text="&#xf5cb;"
+                       TextColor="#666"
+                       FontSize="12"
+                       FontFamily="FontSolid"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center" />
+                <Label Grid.Column="2"
+                       Grid.Row="3"
+                       Text="Diện tích phòng: 65 m²"
+                       TextColor="#666"
+                       FontSize="12"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Center" />
+                <Label Grid.Row="4"
+                       Text="&#xf14c;"
+                       TextColor="#666"
+                       FontSize="12"
+                       FontFamily="FontSolid"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center" />
+                <Label Grid.Column="2"
+                       Grid.Row="4"
+                       Text="Hướng phòng: Thành phố"
+                       TextColor="#666"
+                       FontSize="12"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Center" />
+                <Label Grid.Row="5"
+                       Text="&#xf54d;"
+                       TextColor="#666"
+                       FontSize="12"
+                       FontFamily="FontSolid"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center" />
+                <Label Grid.Column="2"
+                       Grid.Row="5"
+                       Text="Không hút thuốc"
+                       TextColor="#666"
+                       FontSize="12"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Center" />
+                <Label Grid.Row="6"
+                       Text="&#xf055;"
+                       TextColor="#007aff"
+                       FontSize="12"
+                       FontFamily="FontSolid"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center" />
+                <Label Grid.Column="2"
+                       Grid.Row="6"
+                       Text="Các tiện ích khác"
+                       TextColor="#007aff"
+                       FontSize="12"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Center" />
+            </Grid>
+            <Label HeightRequest="2" Background="{DynamicResource Gray100}"/>
+            <VerticalStackLayout Spacing="10">
+                <Label Text="Thông tin liên hệ"
+                       FontAttributes="Bold"
+                       FontSize="16"/>
+                <Frame BackgroundColor="#edf2f7"
+                       CornerRadius="10" Padding="15">
+                    <HorizontalStackLayout Spacing="5">
+                        <Label Text="&#xf2bd;" 
+                               VerticalOptions="Center"
+                               FontFamily="FontRegular"
+                               TextColor="{DynamicResource Blue100Accent}"/>
+                        <Label Text="Đăng nhập"
+                               VerticalOptions="Center"
+                               TextColor="{DynamicResource Blue100Accent}"/>
+                        <Label Text="để đặt phòng nhanh hơn"
+                               TextColor="#666"/>
+                    </HorizontalStackLayout>
+                </Frame>
+                <Entry Placeholder="Họ và tên" PlaceholderColor="{DynamicResource Gray600}"/>
+                <Entry Placeholder="Số điện thoại" PlaceholderColor="{DynamicResource Gray600}"/>
+                <Entry Placeholder="Email" PlaceholderColor="{DynamicResource Gray600}"/>
+                <Entry Placeholder="Địa chỉ liên hệ" PlaceholderColor="{DynamicResource Gray600}"/>
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Yêu cầu đặc biệt"
+                       FontAttributes="Bold"
+                       FontSize="16"/>
+                    <Frame BackgroundColor="#edf2f7"
+                       CornerRadius="10" Padding="15">
+                        <Label Text="Lưu ý: Các yêu cầu của bạn chỉ được đáp ứng tuỳ tình trạng phòng của khách sạn."
+                           TextColor="{DynamicResource Blue100Accent}"
+                           FontSize="12"/>
+                    </Frame>
+                    <Label Text="Chọn loại giường (nếu có phòng):"
+                       FontAttributes="Bold"
+                       FontSize="14"/>
+                    <HorizontalStackLayout HeightRequest="30">
+                        <CheckBox 
+                        Color="{DynamicResource Gray100}"/>
+
+                        <Label Text="Tôi muốn lấy giường lớn"
+                           VerticalOptions="Center"
+                           TextColor="{DynamicResource Gray600}"/>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout Margin="0,-20,0,0">
+                        <CheckBox Color="{DynamicResource Gray100}"/>
+                        <Label Text="Tôi muốn lấy giường lớn"
+                           VerticalOptions="Center"
+                           TextColor="{DynamicResource Gray600}"/>
+                    </HorizontalStackLayout>
+                    <Label Text="Thời gian nhận phòng dự kiến( không bắt buộc)"
+                       FontAttributes="Bold"
+                       FontSize="14"/>
+                    <StackLayout Margin="0,-15,0,0">
+                        <Picker Title="Thời gian dự kiến"
+                            TextColor="#5F007C"
+                            FontSize="12">
+                            <Picker.Items>
+                                <x:String>Từ 15:00 - 16:00</x:String>
+                                <x:String>Từ 16:00 - 17:00</x:String>
+                                <x:String>Từ 17:00 - 18:00</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </StackLayout>
+                </VerticalStackLayout>
+                <Grid RowSpacing="-20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Yêu cầu đặc biệt khác"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           Grid.ColumnSpan="2"/>
+                    <Label Grid.Column="1"
+                           Text="&#xf055;"
+                           FontFamily="FontSolid"
+                           VerticalOptions="End"
+                           Margin="125,0,0,3"
+                           TextColor="#666"/>
+                    <CheckBox Grid.Row="1" Grid.Column="0" VerticalOptions="Start" Margin="0,20,0,0" Color="{DynamicResource Gray100}"/>
+                    <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
+                           Text="Có hút thuốc"
+                           Margin="0,30,0,0"
+                           TextColor="{DynamicResource Gray600}"/>
+                    <CheckBox Grid.Row="2" Grid.Column="0" Color="{DynamicResource Gray100}"/>
+                    <Label Grid.Row="2" Grid.Column="1"
+                           Text="Gần biển nhất"                           
+                           Margin="0,10,0,0"
+                           TextColor="{DynamicResource Gray600}"/>    
+                </Grid>
+                <Label HeightRequest="2" Background="{DynamicResource Gray100}"/>
+
+                <Label Text="Chi tiết giá"
+                       FontSize="16"
+                       FontAttributes="Bold"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="2 phòng x 2 đêm"
+                           VerticalOptions="Center"
+                           TextColor="#666"/>
+                    <VerticalStackLayout Grid.Column="1"
+                                         HorizontalOptions="End">
+                        <Label Text="1.056.279đ"
+                               FontSize="12"
+                               TextColor="#666"
+                               TextDecorations="Strikethrough"
+                               HorizontalOptions="End"/>
+                        <Label Text="1.003.465đ"
+                               FontSize="16"
+                               TextColor="#5f007c"/>
+                    </VerticalStackLayout>
+                </Grid>
+                <Label HeightRequest="1" Background="{DynamicResource Gray100}"/>
+                <Grid Margin="0,0,0,10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Phụ thu trẻ em"
+                           VerticalOptions="Center"
+                           TextColor="#666"/>
+                    <Label Text="250.000đ"
+                           Grid.Column="1"
+                           TextColor="#666"
+                           HorizontalOptions="End"/>
+                </Grid>
+                <Label HeightRequest="1" Background="{DynamicResource Gray100}"/>
+                <Grid Margin="0,0,0,10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Thuế và phí dịch vụ khách sạn"
+                           VerticalOptions="Center"
+                           TextColor="#666"/>
+                    <Label Text="843.959đ"
+                           Grid.Column="1"
+                           TextColor="#666"
+                           HorizontalOptions="End"/>
+                </Grid>
+                <Label HeightRequest="1" Background="{DynamicResource Gray100}"/>
+                <Grid Margin="0,0,0,10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Mã giảm giá"
+                           VerticalOptions="Center"
+                           TextColor="{DynamicResource Gray600}"/>
+                    <Entry Placeholder="Nhập mã"
+                           Grid.Column="1"
+                           TextColor="{DynamicResource Gray600}"
+                           WidthRequest="150"
+                           HorizontalOptions="Center"/>
+                    <Button Grid.Column="2"
+                            WidthRequest="80"
+                            HeightRequest="40"
+                            HorizontalOptions="End"
+                            Text="Áp dụng"
+                            FontSize="12"/>
+                </Grid>
+                <Label HeightRequest="1" Background="{DynamicResource Gray100}"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <VerticalStackLayout>
+                        <Label Text="Tổng tiền thanh toán"
+                               FontSize="16"
+                               FontAttributes="Bold"/>
+                        <Label Text="Đã bao gồm thuế, phí, VAT"
+                               FontSize="13"
+                               TextColor="#666"/>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Grid.Column="1">
+                        <Label Text="5.194.896đ"
+                               FontSize="16"
+                               FontAttributes="Bold"
+                               HorizontalOptions="End"/>
+                        <Label Text="(Giá cho 4 người lớn,1 trẻ em)"
+                               FontSize="12"
+                               HorizontalOptions="End"/>
+                    </VerticalStackLayout>
+                </Grid>
+                <Label Text="Lựa chọn khôn khéo! Bạn tiết kiệm được 7.408.622 ₫"
+                       FontSize="12"
+                       TextColor="#666"/>
+                <HorizontalStackLayout>
+                    <CheckBox Color="{DynamicResource Gray100}" 
+                           Margin="0,-10,0,0"/>
+                    <Label Text="Yêu cầu xuất hóa đơn VAT"
+                           VerticalOptions="Center"
+                           TextColor="#666"
+                           Margin="0,-15,0,0"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

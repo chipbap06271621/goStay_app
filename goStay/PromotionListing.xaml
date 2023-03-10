@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:tabs="http://sharpnado.com"
+             x:Class="goStay.PromotionListing"
+             Title="PromotionListing">
+    <ScrollView>
+        <VerticalStackLayout>
+            <VerticalStackLayout Padding="15">
+                <Label Text="Chương trình ưu đãi"
+                   FontSize="16"
+                   FontAttributes="Bold"
+                   Margin="0,0,0,10"/>
+                <StackLayout Spacing="20">
+                    <VerticalStackLayout Spacing="5">
+                        <VerticalStackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="PromotionPlaneDetail"/>
+                        </VerticalStackLayout.GestureRecognizers>
+                        <Border  StrokeShape="RoundRectangle 5">
+                            <Image Source="bamboo"/>
+                        </Border>
+                        <Label Text="Rộn ràng Du lịch mùa lễ hội - Khách sạn giảm đến 200K"
+                                   FontAttributes="Bold"/>
+                        <HorizontalStackLayout>
+                                <Label Text="&#xf017;"
+                                           FontFamily="FontRegular"
+                                           Margin="0,3,5,0"
+                                           TextColor="#666"/>
+                                <Label Text="22/09/2022"
+                                           TextColor="#666"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="5">
+                        <VerticalStackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="PromotionTourDetail"/>
+                        </VerticalStackLayout.GestureRecognizers>
+                        <Border  StrokeShape="RoundRectangle 5"
+                                 StrokeThickness="0">
+                            <Image Source="flash"/>
+                        </Border>
+                        <Label Text="Rộn ràng Du lịch mùa lễ hội - Khách sạn giảm đến 200K"
+                                   FontAttributes="Bold"/>
+                        <HorizontalStackLayout>
+                                <Label Text="&#xf017;"
+                                           FontFamily="FontRegular"
+                                           Margin="0,3,5,0"
+                                           TextColor="#666"/>
+                                <Label Text="22/09/2022"
+                                           TextColor="#666"/>
+                            </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="5">
+                        <VerticalStackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="PromotionPlaneDetail"/>
+                        </VerticalStackLayout.GestureRecognizers>
+                        <Border  StrokeShape="RoundRectangle 5"
+                                 StrokeThickness="0">
+                            <Image Source="banner"/>
+                        </Border>
+                        <Label Text="Rộn ràng Du lịch mùa lễ hội - Khách sạn giảm đến 200K"
+                                   FontAttributes="Bold"/>
+                        <HorizontalStackLayout>
+                                <Label Text="&#xf017;"
+                                           FontFamily="FontRegular"
+                                           Margin="0,3,5,0"
+                                           TextColor="#666"/>
+                                <Label Text="22/09/2022"
+                                           TextColor="#666"/>
+                            </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Spacing="5">
+                        <VerticalStackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="PromotionPlaneDetail"/>
+                        </VerticalStackLayout.GestureRecognizers>
+                        <Border  StrokeShape="RoundRectangle 5"
+                                 StrokeThickness="0">
+                            <Image Source="bamboo2"/>
+                        </Border>
+                        <Label Text="Rộn ràng Du lịch mùa lễ hội - Khách sạn giảm đến 200K"
+                                   FontAttributes="Bold"/>
+                        <HorizontalStackLayout>
+                                <Label Text="&#xf017;"
+                                           FontFamily="FontRegular"
+                                           Margin="0,3,5,0"
+                                           TextColor="#666"/>
+                                <Label Text="22/09/2022"
+                                           TextColor="#666"/>
+                            </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </StackLayout>
+                <Label Text="Mã giảm giá dành cho bạn"
+                   FontSize="16"
+                   FontAttributes="Bold"
+                       Margin="0,10"/>
+                <Border StrokeShape="RoundRectangle 5"
+                        StrokeDashArray="2 2"
+                        StrokeDashOffset="1"
+                        Stroke="{DynamicResource Primary}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="https://i.pinimg.com/originals/46/87/ec/4687ecccef953e56503adf3f31be2326.jpg"
+                               HeightRequest="100"/>
+                        <VerticalStackLayout Grid.Column="1"
+                                             VerticalOptions="Center">
+                            <Label Text="Giảm giá lên đến"
+                                   FontAttributes="Bold"
+                                   FontSize="16"/>
+                            <Label Text="20%"
+                                   FontSize="30"
+                                   TextColor="{DynamicResource Primary}"
+                                   FontAttributes="Bold"/>
+                            <Label Text="HSD: 31/12/2022"
+                                   TextColor="#666"/>
+                        </VerticalStackLayout>
+                        <Border Grid.ColumnSpan="2"
+                                Grid.Row="1"
+                                Margin="10"
+                                HeightRequest="50"
+                                StrokeShape="RoundRectangle 5">
+                            <Grid ColumnDefinitions="*,Auto" Padding="10">
+                                <Label Text="HOTEL10"
+                                       FontAttributes="Bold"
+                                       VerticalOptions="Center"
+                                       TextColor="{DynamicResource Primary}"/>
+                                <Button Text="COPY"
+                                        HeightRequest="35"
+                                        HorizontalOptions="End"
+                                        VerticalOptions="Center"
+                                        CornerRadius="5"
+                                        Padding="5"/>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </Border>
+                <Border StrokeShape="RoundRectangle 5"
+                        StrokeDashArray="2 2"
+                        StrokeDashOffset="1"
+                        Stroke="{DynamicResource Primary}"
+                        Margin="0,10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="70"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="https://i.pinimg.com/originals/46/87/ec/4687ecccef953e56503adf3f31be2326.jpg"
+                                   HeightRequest="100"/>
+                        <VerticalStackLayout Grid.Column="1"
+                                             VerticalOptions="Center">
+                            <Label Text="Giảm giá lên đến"
+                                   FontAttributes="Bold"
+                                   FontSize="16"/>
+                            <Label Text="20%"
+                                   FontSize="30"
+                                   TextColor="{DynamicResource Primary}"
+                                   FontAttributes="Bold"/>
+                            <Label Text="HSD: 31/12/2022"
+                                   TextColor="#666"/>
+                        </VerticalStackLayout>
+                        <Border Grid.ColumnSpan="2"
+                                Grid.Row="1"
+                                Margin="10"
+                                HeightRequest="50"
+                                StrokeShape="RoundRectangle 5">
+                            <Grid ColumnDefinitions="*,Auto" Padding="10">
+                                <Label Text="HOTEL10"
+                                       FontAttributes="Bold"
+                                       VerticalOptions="Center"
+                                       TextColor="{DynamicResource Primary}"/>
+                                <Button Text="COPY"
+                                        HeightRequest="35"
+                                        HorizontalOptions="End"
+                                        VerticalOptions="Center"
+                                        CornerRadius="5"
+                                        Padding="5"/>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </Border>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

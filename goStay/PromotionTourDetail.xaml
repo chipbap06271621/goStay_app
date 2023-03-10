@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="goStay.PromotionTourDetail"
+             xmlns:viewModels="clr-namespace:goStay.ViewModels"     
+             Title="PromotionTourDetail">
+    <ContentPage.BindingContext>
+        <viewModels:MonkeysViewModel />
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <VerticalStackLayout>
+            <Image Source="flash"/>
+            <VerticalStackLayout Margin="0,20,0,0"
+                             Padding="10">
+                <Label Text="🔥 DEAL CHÁY MỖI TUẦN - KHÔNG THỂ BỎ LỠ"
+                   FontSize="20"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"/>
+                <Label Text="Giá đã hời, nay thêm Deal ngon"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"
+                   TextColor="{DynamicResource Primary}"
+                   FontSize="16"/>
+                <Border Margin="0,20"
+                    Padding="0,20"
+                    Stroke="{DynamicResource Primary}"
+                    StrokeDashArray="4 2"
+                    StrokeDashOffset="2"
+                    StrokeShape="RoundRectangle 5">
+                    <VerticalStackLayout>
+                        <Label Text="📍Ưu đãi đặt phòng khách sạn"
+                           HorizontalOptions="Center"
+                           TextColor="{DynamicResource Primary}"
+                           FontSize="18"/>
+                        <Button Text="VUILEHOI"
+                            WidthRequest="100"
+                            Margin="0,10"/>
+                        <Label Text="👉Giảm 5% đến 200.000đ cho đặt phòng khách sạn từ 600.000 đồng"
+                           Margin="10,0,0,0"/>
+                        <Label Text="(*)Áp dụng cho một số hạng phòng"
+                           HorizontalOptions="Center"/>
+                        <Label Text="⏰Thời gian dùng mã: 01/11/2022 - 30/11/2022"
+                           HorizontalOptions="Center"/>
+                        <Label Text="Xem chi tiết thể lệ mã giảm giá"
+                           HorizontalOptions="Center"
+                           TextColor="#666"
+                           TextDecorations="Underline"/>
+                    </VerticalStackLayout>
+                </Border>
+                <Border  StrokeShape="RoundRectangle 5,5,5,5"
+                     Stroke="#ebebeb"
+                     Padding="2"
+                     HorizontalOptions="Center"
+                     Background="{DynamicResource Primary}">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Button
+                            Text="Đặt phòng khách sạn ngay"
+                            Margin="10,-4,0,0"
+                            TextColor="White"
+                            VerticalOptions="Center"
+                            SemanticProperties.Hint="Counts the number of times you click"
+                            HeightRequest="48">
+                            <Button.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="HotelDetail"/>
+                            </Button.GestureRecognizers>
+                        </Button>
+                        <Label
+                            FontSize="16"
+                            Margin="-5,12,20,0"
+                            Text="&#xe098;"
+                            TextColor="White"
+                            FontFamily="FontSolid"
+                            ZIndex="99"
+                            />
+                    </StackLayout>
+                </Border>
+            </VerticalStackLayout>
+            <VerticalStackLayout>
+                <VerticalStackLayout BackgroundColor="#edf2f7" Padding="15">
+                        <Label Text="Tháng 11 - Những ngày chớm đông"
+                           FontAttributes="Bold"
+                           FontSize="20"
+                           HorizontalOptions="Center"
+                           TextColor="{DynamicResource Primary}"
+                           Margin="0,10"/>
+                        <Label Text="Khi những cơn gió đầu đông tràn về, thời tiết chuyển sang mát mẻ, những bông hoa miền cao đua nhau nở rộ, ở nơi miền trung biển đảo bước vào mùa khô. Thật lý tưởng cho một chuyến du lịch cuối năm để nghỉ ngơi và thư giãn, hay những chuyến du lịch tâm linh kết hợp ngắm cảnh nghỉ dưỡng."
+                           HorizontalOptions="Center"
+                           Margin="5,0,5,20"/>
+                    <CarouselView HeightRequest="260" ItemsSource="{Binding Monkeys}" x:Name="myCarouselView" IndicatorView="indicatorView">
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid HorizontalOptions="FillAndExpand" ColumnSpacing="10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <VerticalStackLayout Grid.Column="0" Spacing="10">
+                                        <VerticalStackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="HotelDetail"/>
+                                        </VerticalStackLayout.GestureRecognizers>
+                                        <Label Text="Mộc Châu"
+                                               HorizontalOptions="Center"
+                                               FontAttributes="Bold"/>
+                                        <Border Padding="10"
+                                        StrokeShape="RoundRectangle 5">
+                                            <AbsoluteLayout>
+                                                <Image Source="{Binding ImageUrl1}" HeightRequest="200"/>
+                                                <Label Text="Giá chỉ từ 825k /1 đêm"
+                                                       TextColor="White"
+                                                       
+                                                       AbsoluteLayout.LayoutBounds="1,.9,145,35"
+                                                       AbsoluteLayout.LayoutFlags="PositionProportional"
+                                                       ZIndex="2"/>
+                                                <StackLayout HeightRequest="200"
+                                                     Background="#5b575880"
+                                                     ZIndex="1"
+                                                     AbsoluteLayout.LayoutBounds=".5,.5,155,25"
+                                                     AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                                            </AbsoluteLayout>
+                                        </Border>
+                                    </VerticalStackLayout>
+                                    <VerticalStackLayout Grid.Column="1" Spacing="10">
+                                        <Label Text="Đà Lạt" FontAttributes="Bold" HorizontalOptions="Center"/>
+                                        <Border Padding="10"
+                                        StrokeShape="RoundRectangle 5">
+                                            <AbsoluteLayout>
+                                                <Image Source="{Binding ImageUrl2}" HeightRequest="200"/>
+                                                <Label Text="Giá chỉ từ 825k /1 đêm"
+                                                       TextColor="White"
+                                                       
+                                                       AbsoluteLayout.LayoutBounds="1,.9,145,35"
+                                                       AbsoluteLayout.LayoutFlags="PositionProportional"
+                                                       ZIndex="2"/>
+                                                <StackLayout HeightRequest="200"
+                                                     Background="#5b575880"
+                                                     ZIndex="1"
+                                                     AbsoluteLayout.LayoutBounds=".5,.5,155,25"
+                                                     AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                                            </AbsoluteLayout>
+                                        </Border>
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                    </CarouselView>
+                    <IndicatorView x:Name="indicatorView"
+                                   IndicatorColor="LightGray"
+                                   SelectedIndicatorColor="{DynamicResource Primary}"
+                                   HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+            </VerticalStackLayout>
+            <VerticalStackLayout Padding="15">
+                <Label Text="Khách sạn quốc tế nay đã có trên goStay.vn"
+                       HorizontalOptions="Center"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       TextColor="#5f007c"/>
+                <Grid Margin="0,20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <VerticalStackLayout>
+                        <Border StrokeShape="RoundRectangle 60"
+                                WidthRequest="100">
+                            <Image Source="phuquoc"/>
+                        </Border>
+                        <Label Text="Phú Quốc"
+                               HorizontalOptions="Center"
+                               FontAttributes="Bold"/>
+                        <Label Text="1268 khách sạn"
+                               FontSize="12"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Grid.Column="1">
+                        <Border StrokeShape="RoundRectangle 60"
+                                WidthRequest="100">
+                            <Image Source="dalat" />
+                        </Border>
+                        <Label Text="Đá Lạt"
+                               HorizontalOptions="Center"
+                               FontAttributes="Bold"/>
+                        <Label Text="2021 Khách sạn"
+                               FontSize="12"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Grid.Column="2">
+                        <Border StrokeShape="RoundRectangle 60"
+                                WidthRequest="100">
+                            <Image Source="nhatrang"/>
+                        </Border>
+                        <Label Text="Nha Trang"
+                               HorizontalOptions="Center"
+                               FontAttributes="Bold"/>
+                        <Label Text="3000 khách sạn"
+                               FontSize="12"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Grid>
+            </VerticalStackLayout>
+            <StackLayout HorizontalOptions="StartAndExpand" x:Name="Plane" Margin="15">
+                <StackLayout>
+                    <Label 
+                            Text="Chuyến bay giá tốt từ Hà Nội"
+                            FontSize="18"
+                            HorizontalOptions="FillAndExpand"
+                            TextColor="{StaticResource Black}"
+                            FontAttributes="Bold"/>
+                    <Label 
+                            HorizontalOptions="FillAndExpand"   
+                            Text="Những chuyến bay giá tốt nhất trong tháng khởi hành từ Hà Nội"
+                            FontSize="12"
+                            TextColor="{StaticResource Gray600}"
+                            FontAttributes="None"/>
+                </StackLayout>
+                <Grid Margin="0,20,0,20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <VerticalStackLayout Spacing="10">
+                        <Frame  
+                                    Background="{DynamicResource White}"
+                                    Padding="15,10,15,10"
+                                    BorderColor="{DynamicResource Gray100}">
+                            <VerticalStackLayout Spacing="5">
+                                <VerticalStackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="AirPlane"/>
+                                </VerticalStackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Border WidthRequest="40"
+                                            HeightRequest="40"
+                                            StrokeShape="RoundRectangle 50,50,50,50"
+                                            >
+                                        <Image Source="flight/bb.jpg"
+                                               WidthRequest="30"
+                                               HeightRequest="30"
+                                               />
+                                    </Border>
+                                    <Label
+                                            Text="VietnamAirlines"
+                                            FontSize="16"
+                                            FontAttributes="Bold"
+                                            Margin="10"/>
+                                </StackLayout>
+                                <Line 
+                                        X1="380"
+                                        Stroke="{DynamicResource Gray100}" 
+                                        StrokeDashArray="2,2"
+                                        StrokeDashOffset="2" />
+                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                    <Label
+                                            Text="(HAN) Nội Bài"
+                                            FontSize="16"
+                                            FontAttributes="Bold"                                            
+                                            />
+                                    <Label
+                                            Margin="0,3,0,0"
+                                            FontSize="16"
+                                            Text="&#xf178;"
+                                            TextColor="{DynamicResource Black}"
+                                            FontAttributes="Bold"
+                                            FontFamily="FontSolid"
+                                            />
+                                    <Label
+                                            Text="(DAD) Đà Nẵng"
+                                            FontSize="16"
+                                            FontAttributes="Bold"                                           
+                                            />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                    <Label
+                                            Margin="0,3,0,0"
+                                            FontSize="14"
+                                            Text="&#xf5b0;"
+                                            TextColor="{DynamicResource Gray600}"
+                                            FontFamily="FontSolid"
+                                            />
+                                    <Label
+                                            Text="Khởi hành:"
+                                            FontSize="14"
+                                            />
+                                    <Label
+                                            Text="25/09/2022"
+                                            FontSize="14"
+                                            TextColor="{DynamicResource Gray600}"
+                                            />
+                                </StackLayout>
+                                <VerticalStackLayout HorizontalOptions="End">
+                                    <Label
+                                            HorizontalTextAlignment="End"
+                                            Text="1.056.279đ"
+                                            FontSize="14"
+                                            TextColor="#666"
+                                            FontAttributes="None"
+                                            TextDecorations="Strikethrough"/>
+                                    <Label
+                                            HorizontalTextAlignment="End"                                            
+                                            Text="1.003.465đ"
+                                            FontSize="18"
+                                            FontAttributes="Bold"
+                                            TextColor="{StaticResource Primary}"/>
+                                    <Label
+                                            HorizontalTextAlignment="End"                                            
+                                            Text="Giá sau thuế: 1.280.000đ"
+                                            FontSize="12"
+                                            TextColor="#666"
+                                            FontAttributes="None"/>
+                                </VerticalStackLayout>
+                            </VerticalStackLayout>
+                        </Frame>
+                        <Frame 
+                                    Background="{DynamicResource White}"
+                                    Padding="15,10,15,10"
+                                    BorderColor="{DynamicResource Gray100}">
+
+
+                            <VerticalStackLayout Spacing="5">
+                                <VerticalStackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="AirPlane"/>
+                                </VerticalStackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Border WidthRequest="40"
+                                            HeightRequest="40"
+                                            StrokeShape="RoundRectangle 50,50,50,50"
+                                            >
+                                        <Image Source="flight/vietjet.jpg"
+                                               WidthRequest="30"
+                                               HeightRequest="30"
+                                               />
+                                    </Border>
+                                    <Label
+                                            Text="VietnamAirlines"
+                                            FontSize="16"
+                                            FontAttributes="Bold"
+                                            Margin="10"/>
+                                </StackLayout>
+                                <Line 
+                                        X1="380"
+                                        Stroke="{DynamicResource Gray100}" 
+                                        StrokeDashArray="2,2"
+                                        StrokeDashOffset="2" />
+                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                    <Label
+                                            Text="(HAN) Nội Bài"
+                                            FontSize="16"
+                                            FontAttributes="Bold"                                            
+                                            />
+                                    <Label
+                                            Margin="0,3,0,0"
+                                            FontSize="16"
+                                            Text="&#xf178;"
+                                            TextColor="{DynamicResource Black}"
+                                            FontAttributes="Bold"
+                                            FontFamily="FontSolid"
+                                            />
+                                    <Label
+                                            Text="(DAD) Đà Nẵng"
+                                            FontSize="16"
+                                            FontAttributes="Bold"                                           
+                                            />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                    <Label
+                                            Margin="0,3,0,0"
+                                            FontSize="14"
+                                            Text="&#xf5b0;"
+                                            TextColor="{DynamicResource Gray600}"
+                                            FontFamily="FontSolid"
+                                            />
+                                    <Label
+                                            Text="Khởi hành:"
+                                            FontSize="14"
+                                            />
+                                    <Label
+                                            Text="25/09/2022"
+                                            FontSize="14"
+                                            TextColor="{DynamicResource Gray600}"
+                                            />
+                                </StackLayout>
+                                <VerticalStackLayout HorizontalOptions="End">
+                                    <Label
+                                            HorizontalTextAlignment="End"
+                                            Text="1.056.279đ"
+                                            FontSize="14"
+                                            TextColor="#666"
+                                            FontAttributes="None"
+                                            TextDecorations="Strikethrough"/>
+                                    <Label
+                                            HorizontalTextAlignment="End"                                            
+                                            Text="1.003.465đ"
+                                            FontSize="18"
+                                            FontAttributes="Bold"
+                                            TextColor="{StaticResource Primary}"/>
+                                    <Label
+                                            HorizontalTextAlignment="End"                                            
+                                            Text="Giá sau thuế: 1.280.000đ"
+                                            FontSize="12"
+                                            TextColor="#666"
+                                            FontAttributes="None"/>
+                                </VerticalStackLayout>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </VerticalStackLayout>
+                </Grid>
+                <Button
+                    Text="Xem tất cả"
+                    ImageSource="next.png"
+                    BorderWidth="1"
+                    BorderColor="{DynamicResource Black}"                    
+                    TextColor="{DynamicResource Black}"
+                    Background="{StaticResource White}"
+                    WidthRequest="160"
+                    VerticalOptions="End">
+                    <Button.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="AirPlane"/>
+                    </Button.GestureRecognizers>
+                </Button>
+            </StackLayout>
+
+            <VerticalStackLayout Margin="0,10"
+                                 Padding="10">
+                <Label Text="An tâm đặt dịch vụ tại goStay.vn"
+                       HorizontalOptions="Center"
+                       FontAttributes="Bold"
+                       FontSize="20"
+                       TextColor="#5f007c"/>
+                <Grid Margin="0,20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="170"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <VerticalStackLayout>
+                        <Image Source="support"
+                               HorizontalOptions="Center"
+                               WidthRequest="60"/>
+                        <Label Text="Hỗ trợ khách hàng 24/7"
+                               HorizontalOptions="Center"
+                               FontAttributes="Bold"/>
+                        <Label Text="Chat là có, gọi là nghe, không quản đêm hôm, ngày nghỉ và ngày lễ"
+                               HorizontalOptions="Center"
+                               FontSize="12"/>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Grid.Column="1">
+                        <Image Source="bank"
+                               HorizontalOptions="Center"
+                               WidthRequest="60"/>
+                        <Label Text="Tiết kiệm tới 80%"
+                               HorizontalOptions="Center"
+                               FontAttributes="Bold"/>
+                        <Label Text="Giá tốt nhất từ các đối tác khách sạn thân thiết của goStay.vn"
+                               HorizontalOptions="Center"
+                               FontSize="12"/>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Grid.Row="1"
+                                         Margin="0,30">
+                        <Image Source="protection"
+                               HorizontalOptions="Center"
+                               WidthRequest="60"/>
+                        <Label Text="Thanh toán dễ dàng, bảo mật"
+                               HorizontalOptions="Center"
+                               FontAttributes="Bold"/>
+                        <Label Text="Chuyển khoản, VnPay QR, Thẻ ngân hàng, tiền mặt..."
+                               HorizontalOptions="Center"
+                               FontSize="12"/>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Grid.Row="1"
+                                         Grid.Column="1"
+                                         Margin="0,30">
+                        <Image Source="calendar"
+                               HorizontalOptions="Center"
+                               WidthRequest="60"/>
+                        <Label Text="Hoàn hủy đổi linh hoạt"
+                               HorizontalOptions="Center"
+                               FontAttributes="Bold"/>
+                        <Label Text="Giúp bạn làm chủ chuyến du lịch theo kế hoạch"
+                               HorizontalOptions="Center"
+                               FontSize="12"/>
+                    </VerticalStackLayout>
+                </Grid>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

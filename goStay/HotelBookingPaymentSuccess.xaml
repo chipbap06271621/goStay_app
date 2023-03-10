@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="goStay.HotelBookingPaymentSuccess"
+             Title="HotelBookingPaymentSuccess">
+    <ScrollView>
+        <VerticalStackLayout Padding="15" Spacing="10">
+            <Label Text="&#xf058;"
+               FontFamily="FontRegular"
+               FontSize="30"
+               HorizontalOptions="Center"
+               TextColor="{DynamicResource Primary}"/>
+            <Label Text="Gửi yêu cầu đặt phòng thành công"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"
+                   FontSize="18"/>
+            <Label Text="goStay sẽ chủ động liên hệ với quý khách trong vòng 30 phút để xác nhận phòng trống và hướng dẫn thanh toán."
+               HorizontalOptions="Center"
+               TextColor="#666"/>
+            <Border Stroke="{DynamicResource Primary}"
+                StrokeShape="RoundRectangle 5"
+                StrokeThickness="1"
+                StrokeDashArray="1 2"
+                StrokeDashOffset="1"
+                Padding="10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>                        
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                        <Label 
+                            Grid.Row="0" Grid.Column="0"
+                            Text="Mã đặt phòng"
+                            TextColor="{DynamicResource Gray600}"
+                            />
+                        <Label Grid.Row="1" Grid.Column="0"
+                            Text="MT272658555"
+                             FontAttributes="Bold"
+                           FontSize="14"/>
+                        <Label Grid.Row="0" Grid.Column="1"
+                               Text="Ngày đặt"
+                               TextColor="{DynamicResource Gray600}"/>
+                        <Label Grid.Row="1" Grid.Column="1" 
+                           Text="05 Tháng 10, 2022"
+                           FontAttributes="Bold"
+                           FontSize="14"/>
+                        <Label Grid.Row="2" Grid.Column="0"
+                               Text="Tổng thanh toán"
+                               Margin="0,10,0,0"
+                               TextColor="{DynamicResource Gray600}"/>
+                        <Label Grid.Row="3" Grid.Column="0"
+                           Text="6.066.666đ"
+                           FontAttributes="Bold"
+                           FontSize="16"/>
+                        <Label Grid.Row="2" Grid.Column="1" 
+                               Text="Phương thức thanh toán"
+                               Margin="0,10,0,0"
+                               TextColor="{DynamicResource Gray600}"/>
+                        <Label Grid.Row="3" Grid.Column="1"
+                            Text="Chuyển khoản trực tiếp"
+                           FontAttributes="Bold"
+                           FontSize="14"/>
+                </Grid>
+            </Border>
+            <Label HeightRequest="5"
+                     BackgroundColor="#edf2f7" Margin="0,10,0,0"/>
+            <Label Text="Thông tin phòng"
+               FontAttributes="Bold"
+                   FontSize="16"/>
+            <Grid ColumnSpacing="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border StrokeShape="RoundRectangle 10,10,10,10"
+                        StrokeThickness="0">
+                    <Image Source="img1.png"/>
+                </Border>
+                <VerticalStackLayout Grid.Column="1" Margin="0,15,0,0" Spacing="5">
+                    <Label Text="Altara Suites Đà Nẵng bty AHG"
+                               FontAttributes="Bold"/>
+                    <Label Text="&#xf005; &#xf005; &#xf005; &#xf005; &#xf005;"
+                               FontFamily="FontSolid"
+                               TextColor="#ff8900"/>
+                </VerticalStackLayout>
+            </Grid>
+            <Label HeightRequest="1" Background="{DynamicResource Gray100}"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <VerticalStackLayout>
+                    <Label Text="Nhận phòng"
+                           FontSize="12"
+                           TextColor="#666"/>
+                    <Label Text="Thứ 6, 21 Tháng 10" />
+                    <Label Text="14:00"
+                           FontSize="12"
+                           TextColor="#666"/>
+                </VerticalStackLayout>
+                <Border Grid.Column="1"
+                        HeightRequest="40"
+                        WidthRequest="40"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        StrokeThickness=".5"
+                        StrokeShape="RoundRectangle 40,40,40,40">
+                    <HorizontalStackLayout VerticalOptions="Center"
+                                           HorizontalOptions="Center">
+                        <Label Text="3"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"/>
+                        <Label Text="&#xf186;"
+                               FontFamily="FontRegular"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"/>
+                    </HorizontalStackLayout>
+                </Border>
+                <VerticalStackLayout Grid.Column="2"
+                                     HorizontalOptions="Start">
+                    <Label Text="Trả phòng"
+                           FontSize="12"
+                           TextColor="#666"/>
+                    <Label Text="Thứ 3, 26 Tháng 10" />
+                    <Label Text="12:00"
+                           FontSize="12"
+                           TextColor="#666"/>
+                </VerticalStackLayout>
+            </Grid>
+            <Label HeightRequest="1" Background="{DynamicResource Gray100}"/>
+            <VerticalStackLayout>
+                <Label Text="Số phòng:"
+                       FontAttributes="Bold"/>
+                <Label Text="2 phòng x Bungalow Ocean Front"/>
+                <Label Text="Số khách:"
+                       FontAttributes="Bold"
+                       Margin="0,10,0,0"/>
+                <Label Text="2 phòng x 4 Người lớn, 4 Trẻ em"/>
+            </VerticalStackLayout>
+            <Label HeightRequest="5"
+                     BackgroundColor="#edf2f7" Margin="0,10,0,0"/>            
+            <Label Text="Thông tin liên hệ"
+               FontAttributes="Bold"
+                   FontSize="16"/>
+            <HorizontalStackLayout>
+                <Label Text="Trần Trung Linh/"
+                       FontAttributes="Bold"
+                       FontSize="12"/>
+                <Label Text=" 0969626123/"
+                       TextColor="{DynamicResource Gray600}"/>
+                <Label Text=" linhtt@sgotravel.com.vn"
+                       TextColor="{DynamicResource Gray600}"/>
+            </HorizontalStackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label HeightRequest="50"
+                         WidthRequest="1"
+                         Background="#edf2f7"
+                         HorizontalOptions="Start"/>
+                <VerticalStackLayout Grid.Column="1"
+                                 VerticalOptions="Center">
+                    <Label Text="Thông tin khách nhận phòng:"/>
+                    <Label Text="Nguyễn Văn Anh"
+                       FontSize="14"
+                       FontAttributes="Bold"/>
+                </VerticalStackLayout>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

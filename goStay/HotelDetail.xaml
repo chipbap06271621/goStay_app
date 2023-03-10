@@ -1,0 +1,1094 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="goStay.HotelDetail"
+             xmlns:viewmodels="clr-namespace:goStay.ViewModels"
+             Title="HotelDetail">
+    <ContentPage.BindingContext>
+        <viewmodels:DetailViewModel />
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <VerticalStackLayout>
+            <VerticalStackLayout Margin="0,0,0,30" >
+                <CarouselView IndicatorView="indicatorView" HorizontalOptions="CenterAndExpand" 
+                              ItemsSource="{Binding Topimage}"  >
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate >
+                            <Image Source="{Binding ImageUrl}" 
+                                Aspect="AspectFill"
+                                HeightRequest="250"
+                                HorizontalOptions="FillAndExpand" />
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+                <IndicatorView x:Name="indicatorView"
+                               IndicatorColor="LightGray"
+                               SelectedIndicatorColor="{StaticResource Primary}"
+                               HorizontalOptions="Center"
+                               Margin="0,-20,0,0"
+                               ZIndex="10" Background="Red">
+                </IndicatorView>
+            </VerticalStackLayout>
+            <StackLayout Padding="15,0,15,0" Spacing="10">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <StackLayout Grid.Column="0" HeightRequest="40">
+                        <Label 
+                            Text="Khách Sạn Stella Maris Beach Đà Nẵng"
+                            FontSize="18"
+                            FontAttributes="Bold"/>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="EndAndExpand" Grid.Column="1">
+                        <Border 
+                                StrokeShape="RoundRectangle 3,3,3,3"
+                                Stroke="{StaticResource OrangeWarning}"
+                                Padding="17,0,0,0"
+                                HeightRequest="25"
+                                WidthRequest="50"
+                                BackgroundColor="{StaticResource OrangeWarning}">
+                            <StackLayout Orientation="Horizontal"
+                                         WidthRequest="50"
+                                         Padding="0,5,0,0">
+                                <Label
+                                Text="&#xf0e9;" 
+                                FontSize="12"
+                                TextColor="{StaticResource White}" 
+                                FontFamily="FontSolid" ></Label>
+                                <Label
+                                FontAttributes="Bold"
+                                Margin="4,-1,0,0"
+                                Text="9.6" 
+                                FontSize="11"
+                                TextColor="{StaticResource White}"></Label>
+                            </StackLayout>
+                        </Border>
+                    </StackLayout>
+                </Grid>
+                <Grid RowSpacing="10" ColumnSpacing="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Margin="0,2,5,5"
+                           FontSize="12"
+                           Text="&#xf005; &#xf005; &#xf005; &#xf005; &#xf005;"
+                           TextColor="{StaticResource OrangeWarning}"
+                           FontFamily="FontSolid"/>
+                    <Label     Grid.Column="0" Grid.Row="1"
+                                 Text="&#xf3c5;" 
+                                 FontSize="15"
+                                 TextColor="{StaticResource Primary}" 
+                                 FontFamily="FontSolid" />
+                    <Label      Grid.Row="1" Grid.ColumnSpan="2"
+                                 Margin="20,0,0,0"
+                                 HorizontalOptions="Start"
+                                 TextColor="{StaticResource Primary}"
+                                 FontSize="12"
+                                 Text="120 Võ Nguyên Giáp, Phước Mỹ, Quận Sơn Trà, Đà Nẵng, Việt Nam"/>
+                    <StackLayout  Grid.Row="2" Grid.ColumnSpan="2" Orientation="Vertical" Spacing="5" >
+                        <Image Source="hotel/img2.png" HorizontalOptions="Center"/>
+                        <Label 
+                               Padding="0,3,0,0"
+                               FontAttributes="Bold"
+                               Text="Các địa danh nổi tiếng"
+                               FontSize="18"
+                               TextColor="{StaticResource Black}"/>
+                        <StackLayout Orientation="Horizontal" Padding="0,0,5,0" >
+                            <Label 
+                                Text="Biển Mỹ Khê"
+                                FontSize="12"
+                                />
+                            <Label
+                                HorizontalOptions="EndAndExpand"
+                                Text="0.5km"
+                                FontSize="12"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" Padding="0,0,5,0">
+                            <Label 
+                                Text="Cầu Rồng"
+                                FontSize="12"
+                                />
+                            <Label
+                                HorizontalOptions="EndAndExpand"
+                                Text="0.7km"
+                                FontSize="12"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label
+                                TextColor="{DynamicResource Blue100Accent}"
+                                Text="Xem thêm"
+                                FontSize="12"/>
+                            <Label 
+                                Padding="4,4,0,0"
+                                   Text="&#xf054;"
+                                   FontSize="12"
+                                   FontFamily="FontSolid" 
+                                   TextColor="{DynamicResource Blue100Accent}"/>
+                        </StackLayout>
+
+                    </StackLayout>
+                </Grid>
+                <Label HeightRequest="5" Background="{StaticResource Gray100}" />
+                <StackLayout>
+                    <Label  
+                        Text="Ưu điểm của khách sạn" 
+                        FontSize="18"
+                        FontAttributes="Bold"/>
+                    <Grid Margin="0,8,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="50"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0"
+                                HorizontalTextAlignment="Center"
+                                Text="&#xf594;" 
+                                FontSize="20"
+                                TextColor="{StaticResource Primary}" 
+                                FontFamily="FontSolid"/>
+                        <Label Grid.Row="1" Grid.Column="0" 
+                                HorizontalTextAlignment="Center"
+                                Text="Trung tâm thành phố"
+                                FontSize="12"/>
+                        <Label  Grid.Row="0" Grid.Column="1"
+                                HorizontalTextAlignment="Center"
+                                Text="&#xe555;" 
+                                FontSize="20"
+                                TextColor="{StaticResource Primary}" 
+                                FontFamily="FontSolid"/>
+                        <Label Grid.Row="1" Grid.Column="1"
+                                HorizontalTextAlignment="Center"
+                                Text="Trung tâm thành phố"
+                                FontSize="12"/>
+                        <Label Grid.Row="0" Grid.Column="2" 
+                                HorizontalTextAlignment="Center"
+                                Text="&#xf756;" 
+                                FontSize="20"
+                                TextColor="{StaticResource Primary}" 
+                                FontFamily="FontSolid"/>
+                        <Label Grid.Row="1" Grid.Column="2" 
+                                HorizontalTextAlignment="Center"
+                                Text="Nhận phòng [24 giờ]"
+                                FontSize="12"/>
+                        <Label Grid.Row="0" Grid.Column="3" 
+                           HorizontalTextAlignment="Center"
+                                Text="&#xf2cc;" 
+                                FontSize="20"
+                                TextColor="{StaticResource Primary}" 
+                                FontFamily="FontSolid"/>
+                        <Label Grid.Row="1" Grid.Column="3" 
+                                 HorizontalTextAlignment="Center"
+                                 Text="Tiện nghi phòng tuyệt vời"
+                                 FontSize="12"/>
+                    </Grid>
+
+                </StackLayout>
+                <Label HeightRequest="5" Background="{StaticResource Gray100}" />
+                <StackLayout Orientation="Vertical"  >
+                    <Grid ColumnSpacing="20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0"
+                               Text="Nhận phòng"
+                               TextColor="{StaticResource Gray500}"
+                               FontSize="12"/>
+                        <Label Grid.Row="1" Grid.Column="0"
+                           FontSize="12" 
+                           Text="20 tháng 10"
+                           TextColor="{StaticResource Primary}"/>
+                        <Label Grid.Row="2" Grid.Column="0"
+                           TextDecorations="Underline"
+                           FontSize="12"
+                           Text="Đổi ngày"
+                           TextColor="{DynamicResource Blue100Accent}"/>
+                        <Grid Grid.Row="0" Grid.Column="1" Grid.RowSpan="2">
+                            <Ellipse
+                                Fill="{StaticResource White}" 
+                                Stroke="{StaticResource Gray500}" 
+                                StrokeThickness="2"
+                                WidthRequest="30"
+                                HeightRequest="30"/>
+                            <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Spacing="2">
+                                <Label Text="3" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                <Label 
+                                    VerticalOptions="Center"
+                                    Text="&#xf186;" 
+                                    FontSize="14"
+                                    FontFamily="FontSolid"/>
+                            </StackLayout>
+                        </Grid>
+                        <Label Grid.Row="0" Grid.Column="2" 
+                            Text="Trả phòng"
+                            TextColor="{StaticResource Gray500}"
+                            FontSize="12"/>
+                        <Label Grid.Row="1" Grid.Column="2"
+                            FontSize="12"
+                            Text="26 tháng 10"
+                            TextColor="{StaticResource Primary}"/>
+                        <Label Grid.Row="0" Grid.Column="3"
+                                Text="Phòng"
+                                TextColor="{StaticResource Gray500}"
+                                FontSize="12"/>
+                        <Label Grid.Row="1" Grid.Column="3"
+                                FontSize="12"
+                                Text="1"
+                                TextColor="{StaticResource Primary}"/>
+                        <Label Grid.Row="0" Grid.Column="4"
+                            Text="Khách"
+                            TextColor="{StaticResource Gray500}"
+                            FontSize="12"/>
+                        <Label Grid.Row="1" Grid.Column="4"
+                            Text="2"
+                            TextColor="{StaticResource Primary}"
+                            FontSize="12"/>
+                        <Label Grid.Row="2" Grid.Column="3"
+                           FontSize="12"
+                           Text="Đổi phòng"
+                           TextDecorations="Underline"
+                           TextColor="{DynamicResource Blue100Accent}"/>
+                    </Grid>
+                </StackLayout>
+                <StackLayout x:Name="View" Spacing="10">
+                    <Label 
+                        FontSize="18"
+                        Text="Phòng"
+                        TextColor="{StaticResource Black}"
+                        FontAttributes="Bold"/>
+                    <Grid>
+                        <Border Background="{StaticResource White}" StrokeShape="RoundRectangle 3,3,3,3" Padding="0,0,0,10" >
+                            <ListView x:Name="EmployeeView" HasUnevenRows="true"  SeparatorVisibility="None" CachingStrategy="RetainElement"  ItemsSource="{Binding ListRoom}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout Orientation="Vertical">
+                                                <StackLayout Margin="0,0,0,30">
+                                                    <CarouselView IndicatorView="indicatorView2" HorizontalOptions="CenterAndExpand" ItemsSource="{Binding Image}">
+                                                        <CarouselView.ItemTemplate>
+                                                            <DataTemplate>
+                                                                <Image Source="{Binding ImageUrl}" 
+                                                                   Aspect="AspectFill"
+                                                                   HeightRequest="150"
+                                                                   HorizontalOptions="FillAndExpand"/>
+                                                            </DataTemplate>
+                                                        </CarouselView.ItemTemplate>
+                                                    </CarouselView>
+                                                    <IndicatorView x:Name="indicatorView2"
+                                                       IndicatorColor="LightGray"
+                                                       SelectedIndicatorColor="{DynamicResource Primary}"
+                                                       HorizontalOptions="Center"
+                                                       Margin="0,-20,0,0"/>
+                                                </StackLayout>
+                                                <Label
+                                                   Margin="12,0,0,0"
+                                                   Text="{Binding Title}"
+                                                   TextColor="{StaticResource Black}"
+                                                   FontAttributes="Bold" />
+                                                <StackLayout Orientation="Horizontal" Spacing="13" Padding="12,0,12,0">
+                                                    <Label      
+                                                 Text="&#xf183;" 
+                                                 FontSize="15"
+                                                 TextColor="{StaticResource Primary}" 
+                                                 FontFamily="FontSolid" ></Label>
+                                                    <Label
+                                                Padding="-10,0,0,0"
+                                                Text="Tối đa 2 người"
+                                                TextColor="{StaticResource Gray500}"
+                                                FontSize="12"/>
+                                                    <Label
+                                                 Padding="-10,3,0,0"
+                                                 Text="&#xf05a;" 
+                                                 FontSize="12"
+                                                 TextColor="{StaticResource Primary}" 
+                                                 FontFamily="FontSolid" ></Label>
+
+                                                    <StackLayout  Orientation="Horizontal" Margin="6,0,0,0">
+                                                        <Label
+                                                 Padding="3,3,0,0"
+                                                 Text="&#xf5cb;" 
+                                                 FontSize="12"
+                                                 TextColor="{StaticResource Primary}" 
+                                                 FontFamily="FontSolid" ></Label>
+                                                        <Label
+                                                Padding="4,0,0,0"
+                                                Text="65m2"
+                                                TextColor="{StaticResource Gray500}"
+                                                FontSize="12"/>
+                                                    </StackLayout>
+
+                                                    <StackLayout  Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                                                        <Label
+                                                         Padding="5,3,0,0"
+                                                         Text="&#xf14c;" 
+                                                         FontSize="12"
+                                                         TextColor="{StaticResource Primary}" 
+                                                         FontFamily="FontSolid"/>
+                                                        <Label
+                                                            Padding="4,0,0,0"
+                                                            Text="Hướng thành phố"
+                                                            TextColor="{StaticResource Gray500}"
+                                                            FontSize="12"/>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                                <Label Margin="10" HeightRequest="1" Background="{StaticResource Gray100}">
+                                                </Label>
+                                                <StackLayout Orientation="Vertical" Padding="12,0,0,0">
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label
+                                                       Padding="5,3,0,0"
+                                                       Text="&#xf00c;" 
+                                                       FontSize="12"
+                                                       TextColor="{StaticResource Primary}" 
+                                                       FontFamily="FontSolid" ></Label>
+                                                        <Label
+                                                        Padding="6,0,0,0"
+                                                        Text="Hoàn huỷ một phần"
+                                                        TextColor="{StaticResource Gray500}"
+                                                        FontSize="12"></Label>
+                                                        <Label
+                                                     Padding="5,3,0,0"
+                                                     Text="&#xf05a;" 
+                                                     FontSize="12"
+                                                     TextColor="{StaticResource Primary}" 
+                                                     FontFamily="FontSolid" ></Label>
+
+                                                    </StackLayout>
+                                                    <StackLayout  Orientation="Horizontal">
+                                                        <Label
+                                               Padding="5,3,0,0"
+                                               Text="&#xf00c;" 
+                                               FontSize="12"
+                                               TextColor="{StaticResource Primary}" 
+                                               FontFamily="FontSolid" ></Label>
+                                                        <Label
+                                                Padding="6,0,0,0"
+                                                Text="Bữa sáng miễn phí"
+                                                TextColor="{StaticResource Gray500}"
+                                                FontSize="12"></Label>
+
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Horizontal">
+
+                                                        <Label
+                                               Padding="5,3,0,0"
+                                               Text="&#xf00c;" 
+                                               FontSize="12"
+                                               TextColor="{StaticResource Primary}" 
+                                               FontFamily="FontSolid" ></Label>
+                                                        <Label
+                                                    Padding="6,0,0,0"
+                                                    Text="Xem phụ thu người lớn, trẻ em"
+                                                    TextColor="{StaticResource Gray500}"
+                                                    FontSize="12"></Label>
+                                                        <Label
+                                                         Padding="5,3,0,0"
+                                                         Text="&#xf05a;" 
+                                                         FontSize="12"
+                                                         TextColor="{StaticResource Primary}" 
+                                                         FontFamily="FontSolid" ></Label>
+
+                                                    </StackLayout>
+
+                                                    <StackLayout Orientation="Horizontal" Padding="0,5,0,0">
+                                                        <Label
+                                                        TextColor="{DynamicResource Blue100Accent}"
+                                                        Text="Xem thêm"
+                                                        FontSize="12"/>
+                                                        <Label  
+                               
+                                                        Padding="4,4,0,0"
+                                                        Text="&#xf054;"
+                                                        FontSize="12"
+                                                        FontFamily="FontSolid" 
+                                                        TextColor="#005dea"/>
+                                                    </StackLayout>
+
+                                                </StackLayout>
+                                                <Label Margin="10" HeightRequest="1" Background="{StaticResource Gray100}">
+                                                </Label>
+
+                                                <StackLayout  Orientation="Vertical" Padding="12,0,12,0">
+
+                                                    <StackLayout Orientation="Vertical">
+                                                        <StackLayout Orientation="Horizontal" >
+                                                            <Label TextDecorations="Strikethrough" 
+                                                   Text="1.056.279đ"
+                                                   TextColor="{StaticResource Gray500}"
+                                                   FontSize="12"
+                                                   Padding="2,9,8,0"/>
+                                                            <Grid HeightRequest="22"
+                                                  WidthRequest="48">
+                                                                <Rectangle 
+                                                               StrokeDashArray="1.0 1.0"  RadiusX="4"
+                                                               Stroke="{StaticResource Primary}"  
+                                                               StrokeThickness="1.5" >
+                                                                </Rectangle>
+                                                                <Label 
+                                                                VerticalOptions="Center" HorizontalOptions="Center" 
+                                                                HorizontalTextAlignment="Center" Margin="8,0,8,0" 
+                                                                VerticalTextAlignment="Center" TextColor="Purple">-51%</Label>
+                                                            </Grid>
+                                                        </StackLayout>
+                                                        <Label 
+                                                       Text="1.003.465đ"
+                                                       TextColor="{StaticResource Primary}"
+                                                       FontSize="18"/>
+                                                    </StackLayout>
+
+                                                    <StackLayout Padding="0,5,0,0" Orientation="Horizontal"  HeightRequest="29">
+                                                        <Picker Title=" Số phòng"
+                                               
+                                                TitleColor="{StaticResource Black}"
+                                                FontSize="14"
+                                                WidthRequest="82"
+                                                HeightRequest="40"
+                                                TextColor="{StaticResource Primary}"
+                                                FontAttributes="Bold">
+                                                            <Picker.Items>
+                                                                <x:String>1 Phòng</x:String>
+                                                                <x:String>2 Phòng</x:String>
+                                                                <x:String>3 Phòng</x:String>
+                                                            </Picker.Items>
+                                                        </Picker>
+                                                        <Label 
+                                        Margin="0,8,0,0"
+                                         HorizontalOptions="EndAndExpand"
+                                         Text="Chỉ còn lại 2 phòng! Đặt ngay kẻo lỡ"
+                                           FontSize="12"
+                                           TextColor="{DynamicResource Primary}"
+                                          />
+
+                                                    </StackLayout>
+                                                </StackLayout>
+
+                                                <Label Margin="10" HeightRequest="1" Background="{StaticResource Gray100}">
+                                                </Label>
+
+                                                <StackLayout Padding="12,0,12,0">
+                                                    <Label
+                                                   Text="Tổng tiền: 1.003.465đ"
+                                                   TextColor="{DynamicResource Primary}"
+                                                   FontSize="14"
+                                           
+                                                   FontAttributes="Bold"></Label>
+                                                    <Border 
+                                                        StrokeShape="RoundRectangle 5,5,5,5"
+                                                        HeightRequest="40"
+                                                        Background="{DynamicResource Primary}" 
+                                                        Margin="0,10,0,10"
+                                                        StrokeThickness="0">
+                                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
+                                                            <Label
+                                                                FontAttributes="Bold"
+                                                                Padding="0,7,0,0"
+                                                                HorizontalOptions="Center"
+                                                                Text="Đặt phòng ngay"
+                                                                TextColor="{StaticResource White}"
+                                                                FontSize="14"/>
+                                                            <Label 
+                                                                Padding="8,10,0,0"
+                                                                Text="&#xe098;" 
+                                                                TextColor="{StaticResource White}"
+                                                                FontSize="15"
+                                                                FontFamily="FontSolid" />
+                                                        </StackLayout>
+                                                    </Border>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+
+                        </Border>
+                    </Grid>
+                </StackLayout>
+                <Border
+                StrokeShape="RoundRectangle 3,3,3,3" 
+                WidthRequest="180"
+                HeightRequest="35" 
+                Stroke="{StaticResource Gray900}" >
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Label 
+                    FontAttributes="Bold"
+                    Margin="0,8,0,0"
+                    Text="Xem thêm phòng"
+                    FontSize="12"
+                    TextColor="#141414"/>
+
+                        <Label
+                        
+                        Padding="8,10,0,0"
+                        FontFamily="FontSolid"
+                        Text="&#xf175;"
+                        FontSize="12"
+                        TextColor="#141414" />
+                    </StackLayout>
+
+                </Border>
+                <StackLayout Orientation="Vertical" Padding="0,10,0,0">
+                    <Label 
+                    FontAttributes="Bold"
+                    Text="Đánh giá"
+                    FontSize="18"
+                    TextColor="#141414"/>
+                    <Label
+                    Text="100% đánh giá từ khách hàng đặt phòng trên goStay"
+                    FontSize="12"
+                    TextColor="{StaticResource Green}"/>
+                </StackLayout>
+
+                <Border  Background="{StaticResource White}"
+                         StrokeShape="RoundRectangle 5"
+                         Padding="15">
+                    <StackLayout Orientation="Vertical">
+                        <StackLayout Orientation="Horizontal">
+                            <Border 
+                                StrokeShape="RoundRectangle 5" 
+                                WidthRequest="50"
+                                HeightRequest="50" 
+                                Background="{StaticResource Primary}"
+                                StrokeThickness="0">
+                                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Label                                
+                                    Text="&#xf0e9;" 
+                                    FontSize="16"
+                                    TextColor="{StaticResource White}" 
+                                    FontFamily="FontSolid"/>
+                                    <Label
+                                    Text="9.6"
+                                    FontSize="18"
+                                    FontAttributes="Bold"
+                                    TextColor="{StaticResource White}"/>
+                                </StackLayout>
+                            </Border>
+                            <StackLayout   Orientation="Vertical">
+
+                                <Label
+                                FontAttributes="Bold"
+                                Margin="10,7,0,0"
+                                Text="Tuyệt vời" 
+                                FontSize="14"
+                                TextColor="{StaticResource Gray950}" 
+                                 ></Label>
+                                <Label
+                                Margin="10,0,0,0"
+                                Text="(1234) đánh giá" 
+                                FontSize="12"
+                                TextColor="{StaticResource Gray500}" 
+                                 ></Label>
+                            </StackLayout>
+                            <Button
+                                HeightRequest="50"
+                                HorizontalOptions="EndAndExpand"
+                                ImageSource="edit_white.png"
+                                FontSize="14"
+                                Text="Viết đánh giá"
+                                Clicked="Button_Clicked"/>
+
+                        </StackLayout>
+
+                        <StackLayout Margin="0,12,0,0">
+                            <StackLayout Orientation="Horizontal" >
+                                <Label
+                            
+                                FontSize="12"
+                                Text="Vị trí "
+                                />
+                                <Label
+                                FontSize="12"
+                                Text="9.6 "
+                                HorizontalOptions="EndAndExpand"/>
+
+                            </StackLayout>
+                            <StackLayout>
+                                <ProgressBar Progress="0.8" ProgressColor="{StaticResource Primary}" />
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout Margin="0,0,0,0">
+                            <StackLayout Orientation="Horizontal" >
+                                <Label
+                                FontSize="12"
+                                Text="Giá cả "
+                                />
+                                <Label
+                                FontSize="12"
+                                Text="9.6 "
+                                HorizontalOptions="EndAndExpand"
+                                />
+                            </StackLayout>
+                            <StackLayout>
+                                <ProgressBar Progress="0.5" ProgressColor="{StaticResource Primary}" />
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout Margin="0,0,0,0">
+                            <StackLayout Orientation="Horizontal" >
+                                <Label
+                                FontSize="12"
+                                Text="Phục vụ "
+                                />
+                                <Label
+                                FontSize="12"
+                                Text="7.6 "
+                                HorizontalOptions="EndAndExpand"
+                                />
+                            </StackLayout>
+                            <StackLayout>
+                                <ProgressBar Progress="0.6" ProgressColor="{StaticResource Primary}" />
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout Margin="0,0,0,0">
+                            <StackLayout Orientation="Horizontal" >
+                                <Label
+                                FontSize="12"
+                                Text="Vệ sinh "
+                                />
+                                <Label
+                                FontSize="12"
+                                Text="8.6 "
+                                HorizontalOptions="EndAndExpand"
+                                />
+                            </StackLayout>
+                            <StackLayout>
+                                <ProgressBar Progress="0.7" ProgressColor="{StaticResource Primary}" />
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout Margin="0,0,0,0">
+                            <StackLayout Orientation="Horizontal" >
+                                <Label
+                                FontSize="12"
+                                Text="Tiện nghi "
+                                />
+                                <Label
+                                FontSize="12"
+                                Text="7.6 "
+                                HorizontalOptions="EndAndExpand"
+                                />
+                            </StackLayout>
+                            <StackLayout>
+                                <ProgressBar Progress="0.7" ProgressColor="{StaticResource Primary}" />
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout Margin="0,10,0,0">
+                            <Label Margin="0,0,0,10"
+                            FontAttributes="Bold"
+                            Text="Người dùng đánh giá"
+                            FontSize="14"/>
+                            <Label HeightRequest="1" Background="{StaticResource Gray100}" >
+                            </Label>
+                            <StackLayout Orientation="Horizontal">
+                                <Border StrokeShape="RoundRectangle 50"
+                                    WidthRequest="40" HeightRequest="40" HorizontalOptions="Start"  >
+                                    <Image Source="user.png" WidthRequest="20" HeightRequest="20"/>
+                                </Border>
+
+                                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Padding="10,8,0,0" >
+                                    <Label Style="{StaticResource lbdetailUsername}" Text="Nguyễn Thành An"/>
+                                    <!--update ngày 28/01-->
+                                    <StackLayout Orientation="Horizontal" Spacing="8" Padding="0,4,0,12" >
+                                        <!--update ngày 28/01-->
+
+                                        <Label Style="{StaticResource lbdetailIcon}" Text="&#xf303;"/>
+                                        <!--update ngày 28/01-->
+
+                                        <Label Text="13/04/2022" FontSize="11" />
+                                        <!--update ngày 28/01-->
+                                        <Label Style="{StaticResource lbdetailIcon}" Text="&#xe554;"/>
+                                        <!--update ngày 28/01-->
+
+                                        <Label
+                                        Text="Cặp đôi"
+                                        FontSize="11" />
+
+                                    </StackLayout>
+                                </StackLayout>
+                                <Border 
+                                        
+                                        StrokeShape="RoundRectangle 3,3,3,3"
+                                        Stroke="{StaticResource Primary}"
+                                        HorizontalOptions="EndAndExpand"
+                                        HeightRequest="25"
+                                        WidthRequest="50"
+                                        BackgroundColor="{StaticResource Primary}">
+
+                                    <StackLayout Orientation="Horizontal"
+                                         WidthRequest="50"
+                                         Padding="7,5,0,0">
+                                        <Label
+                                        Margin="0,0,0,0"
+                                        Text="&#xf0e9;" 
+                                        FontSize="12"
+                                        TextColor="{StaticResource White}" 
+                                        FontFamily="FontSolid" ></Label>
+
+                                        <Label
+                                        FontAttributes="Bold"
+                                        Margin="4,-1,0,0"
+                                        Text="9.6" 
+                                        FontSize="11"
+                                        TextColor="{StaticResource White}"></Label>
+                                    </StackLayout>
+                                </Border>
+                            </StackLayout>
+                            <Label     
+                                   HorizontalOptions="Start"
+                                   FontAttributes="Bold"
+                                   Text="Khách sạn sạch đẹp, thân thiện, gần trung tâm"
+                                   FontSize="12"/>
+
+                            <Label     
+                                   TextColor="{StaticResource Gray500}"
+                                   HorizontalOptions="Start"
+                                   Text="Phù hợp đi chơi gia đình có trẻ nhỏ và các gia đình muốn cùng nhau ở chung căn hộ để có không gian chung."
+                                   FontSize="12"/>
+
+                            <StackLayout Orientation="Horizontal" Spacing="5">
+                                <Label      TextColor="{StaticResource Primary}"
+                                        FontSize="11"
+                                        Text="&#xf164;"
+                                        FontFamily="FontSolid"/>
+                                <Label      
+                                        TextColor="{StaticResource Gray500}"
+                                        Padding="0,-2,0,0"
+                                        FontSize="11"
+                                        Text="Đánh giá này có hữu ích với bạn không?"
+                                        />
+
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout Margin="0,15,0,0">
+
+                            <Label HeightRequest="1" Background="{StaticResource Gray100}" >
+                            </Label>
+
+                            <StackLayout Orientation="Horizontal">
+
+                                <Border StrokeShape="RoundRectangle 50"
+                                    WidthRequest="40" HeightRequest="40"
+                                    HorizontalOptions="Start"  >
+
+                                    <Image Source="user.png" WidthRequest="20" HeightRequest="20"/>
+                                </Border>
+
+                                <StackLayout Orientation="Vertical" Padding="10,0,0,0"   Margin="0,7,0,0">
+                                    <Label Text="Nguyễn Thành An 2" Style="{StaticResource lbdetailUsername}" />
+                                    <StackLayout Orientation="Horizontal" 
+                                             Spacing="8" Padding="0,4,0,12" >
+
+                                        <Label
+                                        FontSize="11"
+                                        TextColor="{StaticResource Primary}"
+                                        Text="&#xf303;"
+                                        FontFamily="FontSolid"/>
+
+                                        <Label
+                                        Text="13/04/2022"
+                                        FontSize="11" />
+                                        <Label
+                                        TextColor="{StaticResource Primary}"
+                                        Text="&#xe554;"
+                                        FontSize="11" 
+                                       FontFamily="FontSolid"/>
+
+                                        <Label
+                                        Text="Cặp đôi"
+                                        FontSize="11" />
+
+                                    </StackLayout>
+
+                                </StackLayout>
+                                <Border 
+                                        
+                                        StrokeShape="RoundRectangle 3,3,3,3"
+                                        Stroke="{StaticResource Primary}"
+                                        HorizontalOptions="EndAndExpand"
+                                        HeightRequest="25"
+                                        WidthRequest="50"
+                                        BackgroundColor="{StaticResource Primary}">
+
+                                    <StackLayout Orientation="Horizontal"
+                                         WidthRequest="50"
+                                         Padding="8,5,0,0">
+                                        <Label
+                                        Margin="0,0,0,0"
+                                        Text="&#xf0e9;" 
+                                        FontSize="12"
+                                        TextColor="{StaticResource White}" 
+                                        FontFamily="FontSolid" ></Label>
+
+                                        <Label
+                                        FontAttributes="Bold"
+                                        Margin="4,-1,0,0"
+                                        Text="9.6" 
+                                        FontSize="11"
+                                        TextColor="{StaticResource White}"></Label>
+                                    </StackLayout>
+                                </Border>
+                            </StackLayout>
+                            <Label     
+                                  
+                                   HorizontalOptions="Start"
+                                   FontAttributes="Bold"
+                                   Text="Khách sạn sạch đẹp, thân thiện, gần trung tâm"
+                                   FontSize="12"/>
+
+                            <Label   TextColor="{StaticResource Gray500}"
+                                   HorizontalOptions="Start"
+                                   Text="Phù hợp đi chơi gia đình có trẻ nhỏ và các gia đình muốn cùng nhau ở chung căn hộ để có không gian chung."
+                                   FontSize="12"/>
+
+                            <StackLayout Orientation="Horizontal" Spacing="5">
+                                <Label      TextColor="{StaticResource Primary}"
+                                        FontSize="11"
+                                        Text="&#xf164;"
+                                        FontFamily="FontSolid"/>
+                                <Label      
+                                        TextColor="{StaticResource Gray500}"
+                                        Padding="0,-2,0,0"
+                                        FontSize="11"
+                                        Text="Đánh giá này có hữu ích với bạn không?"
+                                        />
+
+                            </StackLayout>
+                        </StackLayout>
+                        <Label HeightRequest="1" Background="{StaticResource Gray100}" Margin="0,10,0,10">
+                        </Label>
+                        <Border 
+                           
+                            StrokeShape="RoundRectangle 3,3,3,3" 
+                            WidthRequest="190"
+                            HeightRequest="35" 
+                            Stroke="{StaticResource Gray900}" >
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                <Label 
+                                     FontAttributes="Bold"
+                                     Margin="0,8,0,0"
+                                     Text="Xem thêm 1266 đánh giá "
+                                     FontSize="12"
+                                     TextColor="{DynamicResource Black}"/>
+
+                                <Label
+                        
+                                    Padding="5,10,0,0"
+                                    FontFamily="FontSolid"
+                                    Text="&#xf178;"
+                                    FontSize="12"
+                                    TextColor="{DynamicResource Black}" />
+                            </StackLayout>
+                        </Border>
+                    </StackLayout>
+                </Border>
+                <Label     Margin="0,10,0,0"
+                           FontAttributes="Bold"
+                           Text="Chính sách khách sạn"
+                           FontSize="18"
+                           TextColor="{DynamicResource Black}"/>
+
+                <Border StrokeShape="RoundRectangle 5" >
+                    <StackLayout Orientation="Vertical" Padding="15">
+                        <StackLayout Orientation="Horizontal"  Spacing="10" >
+                            <Border 
+                            HorizontalOptions="FillAndExpand"
+                            StrokeShape="RoundRectangle 3,3,3,3" 
+                            Stroke="{StaticResource Gray100}" 
+                            HeightRequest="70" 
+                            Background="{StaticResource Gray100}">
+
+                                <StackLayout  HorizontalOptions="CenterAndExpand"  VerticalOptions="Center">
+                                    <Label 
+                                   Text="Nhận phòng"
+                                   HorizontalOptions="Center"
+                                   FontSize="12"
+                                   TextColor="{StaticResource Gray500}"/>
+
+                                    <Label 
+                                   HorizontalOptions="Center"
+                                   Text="Từ 14:00"
+                                   FontSize="14"
+                                   FontAttributes="Bold" />
+
+                                </StackLayout>
+                            </Border>
+                            <Border 
+                            
+                            StrokeShape="RoundRectangle 3,3,3,3" 
+                            HorizontalOptions="FillAndExpand"
+                            Background="{StaticResource Gray100}"
+                            Stroke="{StaticResource Gray100}">
+                                <StackLayout HorizontalOptions="CenterAndExpand"  VerticalOptions="Center">
+                                    <Label                                   
+                                   Text="Trả phòng"
+                                   FontSize="12"
+                                   TextColor="{StaticResource Gray500}" />
+
+                                    <Label 
+                                   HorizontalOptions="Center"
+                                   Text="Từ 12:00"
+                                   FontSize="14"
+                                   FontAttributes="Bold" />
+                                </StackLayout>
+                            </Border>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Vertical" Spacing="5" Padding="0,10,10,0">
+                            <Label 
+                            Text="Chính sách trẻ em"
+                            FontSize="12" 
+                             FontAttributes="Bold"/>
+
+                            <Label
+                           TextColor="{StaticResource Gray500}"
+                            Text="Trẻ em từ 12 tuổi sẽ được xem như người lớn."
+                            FontSize="12" />
+                            <Label 
+                            TextColor="{StaticResource Gray500}"
+                            Text="Quý khách hàng vui lòng nhập đúng số lượng khách và tuổi để có giá chính xác"
+                            FontSize="12" />
+                            <StackLayout Orientation="Horizontal">
+                                <Label
+                                TextColor="{DynamicResource Blue100Accent}"
+                                Text="Xem thêm"
+                                FontSize="12"/>
+                                <Label 
+                                Padding="4,4,0,0"
+                                   Text="&#xf054;"
+                                   FontSize="12"
+                                   FontFamily="FontSolid" 
+                                   TextColor="{DynamicResource Blue100Accent}"/>
+                            </StackLayout>
+
+
+                        </StackLayout>
+
+
+
+                    </StackLayout>
+                </Border>
+
+                <Label 
+                  FontAttributes="Bold"
+                  Text="Các địa danh nổi tiếng"
+                  FontSize="18"
+                  TextColor="{DynamicResource Black}"/>
+
+                <Border StrokeShape="RoundRectangle 5">
+                    <StackLayout Orientation="Vertical" Spacing="5" Padding="15">
+                        <StackLayout Orientation="Horizontal"  >
+                            <Label
+                         
+                          Text="Biển Mỹ Khê"
+                          FontSize="12"
+                          TextColor="{StaticResource Gray500}"/>
+                            <Label
+                          HorizontalOptions="EndAndExpand"
+                          Text="0.5km"
+                          FontSize="12"
+                          TextColor="{StaticResource Gray500}"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal"  >
+                            <Label
+                          
+                          Text="Cầu Rồng"
+                          FontSize="12"
+                          TextColor="{StaticResource Gray500}"/>
+                            <Label
+                
+                          HorizontalOptions="EndAndExpand"
+                          Text="0.7km"
+                          FontSize="12"
+                          TextColor="{StaticResource Gray500}"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal"  >
+                            <Label
+                          
+                          Text="Cầu Sông Hàn"
+                          FontSize="12"
+                          TextColor="{StaticResource Gray500}"/>
+                            <Label
+                          HorizontalOptions="EndAndExpand"
+                          Text="1.2km"
+                          FontSize="12"
+                          TextColor="{StaticResource Gray500}"/>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Label
+                                TextColor="{DynamicResource Blue100Accent}"
+                                Text="Xem thêm"
+                                FontSize="12"/>
+                            <Label  
+                               
+                                Padding="4,4,0,0"
+                                Text="&#xf054;"
+                                FontSize="12"
+                                FontFamily="FontSolid" 
+                                TextColor="{DynamicResource Blue100Accent}"/>
+                        </StackLayout>
+
+                    </StackLayout>
+                </Border>
+
+                <Label 
+                  FontAttributes="Bold"
+                  Text="Thông tin khách sạn"
+                  FontSize="18"
+                  TextColor="{DynamicResource Black}"/>
+
+                <Border StrokeShape="RoundRectangle 5"  Padding="15" >
+                    <StackLayout>
+                        <Label
+                        
+                        TextColor="{StaticResource Gray500}"
+                        FontSize="12"
+                        LineHeight="1.2"
+                        Text="Altara Suites là nơi nghỉ chân cho du khách tuyệt vời được đón nhận nhiệt tình trong suốt thời gian hoạt động phát triển.  Dưới đây là thông tin chi tiết hơn về những đặc điểm nổi bật cũng như địa điểm tham quan cho du khách tham khảo."/>
+                        <StackLayout Orientation="Horizontal" >
+                            <Label
+                                TextColor="{DynamicResource Blue100Accent}"
+                                Text="Xem thêm"
+                                FontSize="12"/>
+                            <Label  
+                                
+                                Padding="4,4,0,0"
+                                Text="&#xf054;"
+                                FontSize="12"
+                                FontFamily="FontSolid" 
+                                TextColor="{DynamicResource Blue100Accent}"/>
+                        </StackLayout>
+
+                    </StackLayout>
+                </Border>
+            </StackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
+
+

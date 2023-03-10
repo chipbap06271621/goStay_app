@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="goStay.AirPlane"
+             xmlns:viewModels="clr-namespace:goStay.ViewModels"     
+             Title="Danh sách chuyến bay">
+    <ContentPage.BindingContext>
+        <viewModels:MonkeysViewModel />
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <VerticalStackLayout>
+            <Grid Margin="15">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="1"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                    <Label Text="36 Chuyến bay đến Đà Nẵng"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Center"
+                           FontSize="16"
+                           FontAttributes="Bold"/>
+                <Border 
+                        WidthRequest="100"
+                        HeightRequest="50"
+                        StrokeShape="RoundRectangle 5,5,5,5"
+                        Stroke="#ebebeb"
+                        Padding="2"
+                        HorizontalOptions="End"
+                        Grid.Column="1">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Label
+                            FontSize="16"
+                            Margin="5,12,0,0"
+                            Text="&#xf160;"
+                            TextColor="#666"
+                            FontFamily="FontSolid"
+                            ZIndex="99"
+                            />
+                        <Button
+                            x:Name="CounterBtn3"
+                            Text="Bộ Lọc"
+                            Margin="-10,-4,0,0"
+                            Background="White"
+                            BorderColor="White"
+                            TextColor="#212529"
+                            SemanticProperties.Hint="Counts the number of times you click"
+                            VerticalOptions="Center"
+                            HeightRequest="48"/>
+
+                    </StackLayout>
+                </Border>
+            </Grid>
+            <CarouselView HeightRequest="200" ItemsSource="{Binding Monkeys}" x:Name="myCarouselView2" IndicatorView="indicatorView2">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame CornerRadius="5" Padding="0" Margin="0,10,15,0">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="ItemDetail"/>
+                            </Frame.GestureRecognizers>
+                            <Image Source="{Binding ImageUrl1}" HorizontalOptions="FillAndExpand" Aspect="AspectFill"/>
+                        </Frame>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+            <IndicatorView x:Name="indicatorView2"
+                   IndicatorColor="LightGray"
+                   SelectedIndicatorColor="{DynamicResource Primary}"
+                   HorizontalOptions="Center"
+                   Margin="0,-20,0,0"/>
+            <Frame BorderColor="{DynamicResource Gray100}"
+                   Padding="15" Margin="15,15,15,15">
+                <StackLayout>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Grid.Row="0" Text="05:45" FontSize="16"/>
+                        <Label Grid.Column="0" Grid.Row="1" Text="TSN" FontSize="12" TextColor="{DynamicResource Gray600}"/>
+                        <Label Grid.Column="0" Grid.Row="2" Text="1h20 phút, Bay thẳng" FontSize="12" TextColor="Gray"/>
+                        <Label Grid.Column="1" Grid.Row="1" Text=" &#xf178;" FontFamily="FontSolid"/>
+                        <Label Grid.Column="2" Grid.Row="0" Text="07:45" FontSize="16"/>
+                        <Label Grid.Column="2" Grid.Row="1" Text="TSN" FontSize="12" TextColor="{DynamicResource Gray600}"/>
+                        <Border HorizontalOptions="End" Grid.Column="3" Grid.Row="0" Grid.RowSpan="3" StrokeShape="RoundRectangle 50" WidthRequest="50" HeightRequest="50">
+                            <Image Source="vietjet.jpg"/>
+                        </Border>
+                        <Label Margin="0,10,0,0" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="4" HeightRequest="1" Background="{DynamicResource Gray100}"/>
+                        <Label Margin="0,10,0,0" Grid.Column="0" Grid.Row="4"
+                                       Text="8.056.279đ"
+                                       FontSize="13"
+                                       TextColor="#666"
+                                       TextDecorations="Strikethrough"/>
+                        <Label Grid.Column="0" Grid.Row="5"
+                                       Text="6.003.465đ"
+                                       FontSize="16"
+                                       TextColor="{DynamicResource Primary}"
+                               FontAttributes="Bold"/>
+                        <Button Margin="0,10,0,0" Grid.Column="3" Grid.Row="4" Grid.RowSpan="2" Grid.ColumnSpan="2"
+                                        Text="Chọn vé"
+                                        Padding="10,0,10,0"
+                                        BorderColor="{DynamicResource Primary}"
+                                        TextColor="White"
+                                        VerticalOptions="Center"
+                                        HeightRequest="40">
+                            <Button.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="ItemDetail"/>
+                            </Button.GestureRecognizers>
+                        </Button>
+
+                    </Grid>
+                </StackLayout>
+            </Frame>
+            <Frame BorderColor="{DynamicResource Gray100}"
+                       Padding="15" Margin="15,5,15,0">
+                    <StackLayout>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Grid.Row="0" Text="05:45" FontSize="16"/>
+                            <Label Grid.Column="0" Grid.Row="1" Text="TSN" FontSize="12" TextColor="{DynamicResource Gray600}"/>
+                            <Label Grid.Column="0" Grid.Row="2" Text="1h20 phút, Bay thẳng" FontSize="12" TextColor="Gray"/>
+                            <Label Grid.Column="1" Grid.Row="1" Text=" &#xf178;" FontFamily="FontSolid"/>
+                            <Label Grid.Column="2" Grid.Row="0" Text="07:45" FontSize="16"/>
+                            <Label Grid.Column="2" Grid.Row="1" Text="TSN" FontSize="12" TextColor="{DynamicResource Gray600}"/>
+                            <Border HorizontalOptions="End" Grid.Column="3" Grid.Row="0" Grid.RowSpan="3" StrokeShape="RoundRectangle 50" WidthRequest="50" HeightRequest="50">
+                                <Image Source="vietjet.jpg"/>
+                            </Border>
+                            <Label Margin="0,10,0,0" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="4" HeightRequest="1" Background="{DynamicResource Gray100}"/>
+                            <Label Margin="0,10,0,0" Grid.Column="0" Grid.Row="4"
+                                       Text="8.056.279đ"
+                                       FontSize="13"
+                                       TextColor="#666"
+                                       TextDecorations="Strikethrough"/>
+                            <Label Grid.Column="0" Grid.Row="5"
+                                   Text="6.003.465đ"
+                                   FontSize="16"
+                                   TextColor="{DynamicResource Primary}"
+                                   FontAttributes="Bold"/>
+                            <Button Margin="0,10,0,0" Grid.Column="3" Grid.Row="4" Grid.RowSpan="2" Grid.ColumnSpan="2"
+                                            Text="Chọn vé"
+                                            Padding="10,0,10,0"
+                                            BorderColor="{DynamicResource Primary}"
+                                            TextColor="White"
+                                            VerticalOptions="Center"
+                                            HeightRequest="40">
+                                <Button.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="ItemDetail"/>
+                                </Button.GestureRecognizers>
+                            </Button>
+
+                    </Grid>
+
+                    </StackLayout>
+                </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

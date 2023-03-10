@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:goStay.ViewModels" 
+             x:Class="goStay.SelectAirplane"
+             Title="Đặt vé máy bay dễ dàng">
+    <ContentPage.BindingContext>
+        <viewModels:SelectAirplane/>
+    </ContentPage.BindingContext>
+    <Grid Padding="15" RowDefinitions="Auto,*" RowSpacing="10">
+        <Border Stroke="{DynamicResource Gray100}"
+                    HeightRequest="50"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 5">
+            <Entry
+                    ClearButtonVisibility="WhileEditing"
+                    Placeholder="Nhập tên sân bay..."
+                    FontSize="14"
+                    TextColor="{DynamicResource Gray600}"/>
+        </Border>
+        <ScrollView VerticalOptions="FillAndExpand" Scrolled="OnScrollViewScrolled" Grid.Row="1">
+            <VerticalStackLayout Spacing="10">
+                <Label 
+                        Text="Sân bay nội địa phổ biến"
+                        FontAttributes="Bold"
+                        FontSize="18"/>
+                <ListView ItemsSource="{Binding MyPlanes}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout Orientation="Horizontal" 
+                                                 Spacing="10">
+                                        <VerticalStackLayout Grid.Column="1">
+                                            <Label
+                                           Text="{Binding Name}"
+                                           FontAttributes="Bold"
+                                           />
+                                            <Label 
+                                           FontSize="12"
+                                           Text="{Binding Location}"
+                                           FontAttributes="Italic"/>
+                                        </VerticalStackLayout>
+                                    </StackLayout>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
