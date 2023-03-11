@@ -93,6 +93,10 @@
                           Style="{StaticResource DomesticShell}"
                           Title="Vé máy bay"
                           ContentTemplate="{DataTemplate views:DogsPage}" />
+            <ShellContent Route="dogs"
+                          Style="{StaticResource DomesticShell}"
+                          Title="Tour du lịch"
+                          ContentTemplate="{DataTemplate views:TourList}" />
         </Tab>
             <ShellContent Route="monkeys"
                       Style="{StaticResource MonkeysShell}"
