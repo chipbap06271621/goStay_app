@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Shell
+<!--<Shell
     x:Class="goStay.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -10,5 +10,123 @@
         Title="Home"
         ContentTemplate="{DataTemplate local:Welcome}"
         Route="Welcome" />
+
+</Shell>-->
+
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:controls="clr-namespace:goStay.Controls"
+       xmlns:sys="clr-namespace:System;assembly=netstandard"
+       xmlns:views="clr-namespace:goStay.Views"
+       x:Class="goStay.AppShell"
+       x:Name="shell"
+       FlyoutBackgroundImage="photo.jpg"
+       FlyoutBackgroundImageAspect="AspectFill"
+       FlyoutHeaderBehavior="CollapseOnScroll">
+    <Shell.Resources>
+        <Style x:Key="BaseStyle"
+               TargetType="Element">
+            <Setter Property="Shell.BackgroundColor"
+                    Value="#455A64" />
+            <Setter Property="Shell.ForegroundColor"
+                    Value="White" />
+            <Setter Property="Shell.TitleColor"
+                    Value="White" />
+            <Setter Property="Shell.DisabledColor"
+                    Value="#B4FFFFFF" />
+            <Setter Property="Shell.UnselectedColor"
+                    Value="#95FFFFFF" />
+        </Style>
+        <Style TargetType="ShellItem"
+               BasedOn="{StaticResource BaseStyle}" />
+        <Style x:Key="DomesticShell"
+               TargetType="Element"
+               BasedOn="{StaticResource BaseStyle}">
+            <Setter Property="Shell.BackgroundColor"
+                    Value="{DynamicResource Primary}" />
+        </Style>
+        <Style x:Key="MonkeysShell"
+               TargetType="Element"
+               BasedOn="{StaticResource BaseStyle}">
+            <Setter Property="Shell.BackgroundColor"
+                    Value="#689F39" />
+        </Style>
+        <Style x:Key="ElephantsShell"
+               TargetType="Element"
+               BasedOn="{StaticResource BaseStyle}">
+            <Setter Property="Shell.BackgroundColor"
+                    Value="#ED3B3B" />
+        </Style>
+        <Style x:Key="BearsShell"
+               TargetType="Element"
+               BasedOn="{StaticResource BaseStyle}">
+            <Setter Property="Shell.BackgroundColor"
+                    Value="#546DFE" />
+        </Style>
+        <Style x:Key="AboutShell"
+               TargetType="Element"
+               BasedOn="{StaticResource BaseStyle}">
+            <Setter Property="Shell.BackgroundColor"
+                    Value="#96d1ff" />
+        </Style>
+    </Shell.Resources>
+
+    <Shell.FlyoutHeader>
+        <controls:FlyoutHeader />
+    </Shell.FlyoutHeader>
+
+    <Shell.FlyoutFooter>
+        <controls:FlyoutFooter />
+    </Shell.FlyoutFooter>
+
+    <FlyoutItem Route="animals"
+                FlyoutDisplayOptions="AsMultipleItems">
+
+        <Tab Title="Trang chủ"
+             Route="domestic"
+             Icon="house_96.png">
+            <ShellContent Route="cats"
+                          Style="{StaticResource DomesticShell}"
+                          Title="Khách sạn"
+                          ContentTemplate="{DataTemplate views:MainHotels}" />
+            <ShellContent Route="dogs"
+                          Style="{StaticResource DomesticShell}"
+                          Title="Vé máy bay"
+                          ContentTemplate="{DataTemplate views:DogsPage}" />
+        </Tab>
+            <ShellContent Route="monkeys"
+                      Style="{StaticResource MonkeysShell}"
+                      Title="Ưu đãi"
+                      Icon="icon/offer.png"
+                      ContentTemplate="{DataTemplate views:MonkeysPage}" />
+        <ShellContent Route="elephants"
+                      Style="{StaticResource ElephantsShell}"
+                      Title="Khám phá"
+                      Icon="icon/discover.png"
+                      ContentTemplate="{DataTemplate views:ElephantsPage}" />
+
+        <ShellContent Route="bears"
+                      Style="{StaticResource BearsShell}"
+                      Title="Đơn hàng"
+                      Icon="icon/clipboard.png"
+                      ContentTemplate="{DataTemplate views:BearsPage}" />
+
+        <ShellContent Route="about"
+                  Style="{StaticResource AboutShell}"
+                  Title="Tài khoản"
+                  Icon="icon/user.png"
+                  ContentTemplate="{DataTemplate views:AboutPage}" />
+    </FlyoutItem>
+
+    <ShellContent Route="about"
+                  Style="{StaticResource AboutShell}"
+                  Title="About"
+                  Icon="info.png"
+                  ContentTemplate="{DataTemplate views:AboutPage}" />
+
+    <MenuItem Text="Help"
+              IconImageSource="help.png"
+              Command="{Binding HelpCommand}"
+              CommandParameter="https://docs.microsoft.com/dotnet/maui/fundamentals/shell" />
 
 </Shell>

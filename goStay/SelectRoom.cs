@@ -25,7 +25,7 @@ public partial class SelectRoom : ContentPage
 
     private void OnCounterClicked5(object sender, EventArgs e)
 	{
-        Navigation.PushAsync(new SearchCollapse()); 
+        Navigation.PushAsync(new Views.SearchCollapse()); 
     }
 }
 

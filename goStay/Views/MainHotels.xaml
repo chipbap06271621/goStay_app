@@ -1,0 +1,844 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="goStay.Views.MainHotels"
+             xmlns:viewModels="clr-namespace:goStay.ViewModels"
+             xmlns:controls="clr-namespace:goStay.Controls"
+             xmlns:data="clr-namespace:goStay.Data">
+    <ContentPage.BindingContext>
+        <viewModels:MonkeysViewModel />
+    </ContentPage.BindingContext>
+    <Shell.SearchHandler>
+        <controls:AnimalSearchHandler Placeholder="Enter search term"
+                                      ShowsResults="true"
+                                      ItemTemplate="{StaticResource AnimalSearchTemplate}"
+                                      Animals="{x:Static data:MonkeyData.Monkeys}" />
+    </Shell.SearchHandler>
+    
+    <ScrollView>
+        <VerticalStackLayout>
+            <StackLayout 
+                    x:Name="SearchFilter"
+                    Background="#f5f5f5">
+                <Frame CornerRadius="5" Margin="15">
+                    <StackLayout Margin="0">
+                        <StackLayout>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SearchCollapse"/>
+                            </StackLayout.GestureRecognizers>
+                            <Label Text="Địa điểm" 
+                                       TextColor="#666"
+                                       Margin="0,0,0,-10"/>
+                            <Entry Placeholder="Thành phố, khách sạn, điểm đến...">
+                                <Entry.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SearchCollapse"/>
+                                </Entry.GestureRecognizers>
+                            </Entry>
+                        </StackLayout>
+                        <Grid Margin="0,10,0,-10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Ngày đến"
+                                       TextColor="#666"
+                                       Grid.Column="0"/>
+                            <Label Text="Ngày về" 
+                                       TextColor="#666"
+                                       Grid.Column="1"/>
+                        </Grid>
+                        <Grid Margin="0,0,0,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <DatePicker
+                                        MinimumDate="{Binding MinDate}"
+                                        MaximumDate="{Binding MaxDate}"
+                                        Date="{Binding SelectedDate}"
+                                        Grid.Column="0"/>
+                            <DatePicker 
+                                        MinimumDate="{Binding MinDate}"
+                                        MaximumDate="{Binding MaxDate}"
+                                        Date="{Binding SelectedDate}"
+                                        Grid.Column="1"/>
+                        </Grid>
+                        <Grid Margin="0,0,0,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="100" />
+                            </Grid.ColumnDefinitions>
+                            <StackLayout  Grid.Column="0">
+                                <Label Text="Số phòng, số khách" 
+                                       TextColor="#666"
+                                       Margin="0,0,0,-10"/>
+                                <Entry Placeholder="1 phòng, 2 người lớn, 0 trẻ em"/>
+                            </StackLayout>
+                            <Button  
+                                    Grid.Column="1"
+                                    WidthRequest="50"
+                                    HeightRequest="50"
+                                    FontSize="16"
+                                    Text="&#xf002;"
+                                    TextColor="#fff"
+                                    FontFamily="FontSolid"
+                                    HorizontalOptions="End"/>
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+
+
+            <StackLayout Padding="15" x:Name="Sale">
+                <Grid Margin="0,0,0,20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Label 
+                            Text="Flash Sale"
+                            FontSize="26"
+                            FontAttributes="Bold, Italic"
+                            TextTransform="Uppercase"
+                            Grid.Column="0" />
+                    <Frame                       
+                        Background="{StaticResource Primary}"
+                        Grid.Column="1"
+                        Padding="10"
+                        CornerRadius="5">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Spacing="5">
+                            <Label 
+                            TextColor="{StaticResource White}"
+                            Text="29D" />
+                            <Label 
+                            TextColor="{StaticResource White}"
+                            Text=":" />
+                            <Label 
+                            TextColor="{StaticResource White}"                           
+                            Text="24H" />
+                            <Label 
+                            TextColor="{StaticResource White}"
+                            Text=":" />
+                            <Label
+                            TextColor="{StaticResource White}"                            
+                            Text="58M" />
+                            <Label 
+                            TextColor="{StaticResource White}"
+                            Text=":" />
+                            <Label
+                            TextColor="{StaticResource White}"                            
+                            Text="00S" />
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+                <CarouselView HeightRequest="300" ItemsSource="{Binding Monkeys}" x:Name="myCarouselView" IndicatorView="indicatorView">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid HorizontalOptions="FillAndExpand" ColumnSpacing="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Grid.Column="0">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="HotelDetail"/>
+                                    </StackLayout.GestureRecognizers>
+                                    <Frame Padding="0" CornerRadius="5">
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="HotelDetail"/>
+                                        </Frame.GestureRecognizers>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+                                            <Border Grid.Row="0"
+                                                    Background="{DynamicResource Primary}"
+                                                    ZIndex="1"
+                                                    StrokeShape="RoundRectangle 5,5,5,5"
+                                                    StrokeThickness="0"
+                                                    HorizontalOptions="StartAndExpand"
+                                                    VerticalOptions="StartAndExpand"
+                                                    Padding="8,5,8,3"
+                                                    Margin="10"
+                                                    HeightRequest="30">
+                                                <Label
+                                                        Text="-25%"
+                                                        TextColor="{DynamicResource White}"/>
+                                            </Border>
+                                            <Image Grid.Row="0" Grid.RowSpan="2" Source="{Binding ImageUrl1}" HorizontalOptions="FillAndExpand" Aspect="AspectFill" HeightRequest="140"/>
+                                        </Grid>
+                                    </Frame>
+                                    <StackLayout >
+                                        <Label
+                                            Margin="0,10,0,0"
+                                            Text="{Binding Name1}"
+                                            FontAttributes="Bold"/>
+                                        <Label
+                                            Margin="0,5,0,0"
+                                            Text="{Binding Rating1}"
+                                            FontFamily="FontSolid"
+                                            FontSize="12"
+                                            TextColor="{StaticResource OrangeWarning}"/>
+                                        <StackLayout Orientation="Horizontal" Margin="0,10,0,0">
+                                            <Label
+                                            Margin="0,2,5,0"
+                                            FontSize="12"
+                                            Text="&#xf3c5;"
+                                            TextColor="#666"
+                                            FontFamily="FontSolid"
+                                            />
+                                            <Label
+                                            FontSize="12"
+                                            TextColor="#666"
+                                            Text="{Binding Location1}"/>
+                                        </StackLayout>
+                                        <Label
+                                            Text="1.056.279đ"
+                                            FontSize="16"
+                                            TextColor="#666"
+                                            FontAttributes="None"
+                                            TextDecorations="Strikethrough"/>
+                                        <Label
+                                            Text="1.003.465đ"
+                                            FontSize="18"
+                                            FontAttributes="Bold"
+                                            TextColor="{StaticResource Primary}"/>
+                                    </StackLayout>
+                                </StackLayout>
+                                <StackLayout Grid.Column="1">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="HotelDetail"/>
+                                    </StackLayout.GestureRecognizers>
+                                    <Frame Padding="0" CornerRadius="5">
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="HotelDetail"/>
+                                        </Frame.GestureRecognizers>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+                                            <Border Grid.Row="0"
+                                                    Background="{DynamicResource Primary}"
+                                                    ZIndex="1"
+                                                    StrokeShape="RoundRectangle 5,5,5,5"
+                                                    StrokeThickness="0"
+                                                    HorizontalOptions="StartAndExpand"
+                                                    VerticalOptions="StartAndExpand"
+                                                    Padding="8,5,8,3"
+                                                    Margin="10"
+                                                    HeightRequest="30">
+                                                <Label
+                                                        Text="-25%"
+                                                        TextColor="{DynamicResource White}"/>
+                                            </Border>
+                                            <Image Grid.Row="0" Grid.RowSpan="2" Source="{Binding ImageUrl2}" HorizontalOptions="FillAndExpand" Aspect="AspectFill" HeightRequest="140"/>
+                                        </Grid>
+
+                                    </Frame>
+                                    <StackLayout >
+                                        <Label
+                                            Margin="0,10,0,0"
+                                            Text="{Binding Name2}"
+                                            FontAttributes="Bold"/>
+                                        <Label
+                                            Margin="0,5,0,0"
+                                            Text="{Binding Rating2}"
+                                            FontFamily="FontSolid"
+                                            FontSize="12"
+                                            TextColor="{StaticResource OrangeWarning}"/>
+                                        <StackLayout Orientation="Horizontal" Margin="0,10,0,0">
+                                            <Label
+                                            Margin="0,2,5,0"
+                                            FontSize="12"
+                                            Text="&#xf3c5;"
+                                            TextColor="#666"
+                                            FontFamily="FontSolid"
+                                            />
+                                            <Label
+                                            FontSize="12"
+                                            TextColor="#666"
+                                            Text="{Binding Location2}"/>
+                                        </StackLayout>
+                                        <Label
+                                            Text="1.056.279đ"
+                                            FontSize="16"
+                                            TextColor="#666"
+                                            FontAttributes="None"
+                                            TextDecorations="Strikethrough"/>
+                                        <Label
+                                            Text="1.003.465đ"
+                                            FontSize="18"
+                                            FontAttributes="Bold"
+                                            TextColor="{StaticResource Primary}"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Grid>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+                <IndicatorView x:Name="indicatorView"
+                   IndicatorColor="LightGray"
+                   SelectedIndicatorColor="{DynamicResource Primary}"
+                   HorizontalOptions="Center"/>
+            </StackLayout>
+
+            <StackLayout x:Name="Promotion" Margin="15,0,0,0">
+                <StackLayout Margin="0,0,0,0">
+                    <Label 
+                            Text="Mã giảm giá"
+                            FontSize="18"
+                            FontAttributes="Bold"/>
+                    <Label 
+                            Text="Khuyến mãi, giảm giá và ưu đãi đặc biệt dành riêng cho bạn"
+                            FontSize="12"
+                            TextColor="{StaticResource Gray600}"
+                            FontAttributes="None"/>
+                </StackLayout>
+                <Frame CornerRadius="5" Padding="0" Margin="0,10,15,0">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ItemDetail"/>
+                    </Frame.GestureRecognizers>
+                    <StackLayout>
+                        <Border StrokeShape="RoundRectangle 5"
+                                Stroke="{DynamicResource Primary}"
+                                StrokeThickness="1">
+                        <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Grid.RowSpan="3" Background="{DynamicResource Primary}"/>
+                                <Label Margin="20,20,0,0" Grid.Column="1" Text="Nhập mã"/>
+                                <Frame Margin="-50,15,0,0" Grid.Column="2" Grid.Row="0" CornerRadius="5" Background="{DynamicResource Primary}" HeightRequest="30" WidthRequest="90" HorizontalOptions="Start" Padding="10,5,5,5">
+                                    <Label 
+                                        Text="Tặng nàng" 
+                                        TextColor="{DynamicResource White}"/>
+                                </Frame>
+                                <Label Margin="20,5,0,0" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Text="Khách sạn giảm giá đến 300k" FontAttributes="Bold" FontSize="16"/>
+                                <Label Margin="20,10,0,20" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Text="Hạn sử dụng: 10/03/2023" TextColor="{DynamicResource Gray600}"/>
+                            </Grid>
+                        </Border>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+
+            <StackLayout x:Name="Hotel" Padding="15,30,15,0">
+                <StackLayout>
+                    <Label 
+                            Text="Khách sạn hàng đầu tại Việt Nam"
+                            FontSize="18"
+                            FontAttributes="Bold"/>
+                    <Label 
+                            Text="Hơn 1000+ khách sạn, homestay, Resorts,.. giá tốt trên khắp Việt Nam"
+                            FontSize="12"
+                            TextColor="{StaticResource Gray600}"
+                            FontAttributes="None"/>
+                </StackLayout>
+                <CarouselView HeightRequest="300" ItemsSource="{Binding Monkeys}" x:Name="myCarouselView3" IndicatorView="indicatorView3" Margin="0,20,0,0">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid HorizontalOptions="FillAndExpand" ColumnSpacing="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Grid.Column="0">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="HotelDetail"/>
+                                    </StackLayout.GestureRecognizers>
+                                    <Frame Padding="0" CornerRadius="5">
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="HotelDetail"/>
+                                        </Frame.GestureRecognizers>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+                                            <Border Grid.Row="0"
+                                                    Background="{DynamicResource Primary}"
+                                                    ZIndex="1"
+                                                    StrokeShape="RoundRectangle 5,5,5,5"
+                                                    StrokeThickness="0"
+                                                    HorizontalOptions="StartAndExpand"
+                                                    VerticalOptions="StartAndExpand"
+                                                    Padding="8,5,8,3"
+                                                    Margin="10"
+                                                    HeightRequest="30">
+                                                <Label
+                                                        Text="-25%"
+                                                        TextColor="{DynamicResource White}"/>
+                                            </Border>
+                                            <Image Grid.Row="0" Grid.RowSpan="2" Source="{Binding ImageUrl1}" HorizontalOptions="FillAndExpand" Aspect="AspectFill" HeightRequest="140"/>
+                                        </Grid>
+                                    </Frame>
+                                    <StackLayout >
+                                        <Label
+                                            Margin="0,10,0,0"
+                                            Text="{Binding Name1}"
+                                            FontAttributes="Bold"/>
+                                        <Label
+                                            Margin="0,5,0,0"
+                                            Text="{Binding Rating1}"
+                                            FontFamily="FontSolid"
+                                            FontSize="12"
+                                            TextColor="{StaticResource OrangeWarning}"/>
+                                        <StackLayout Orientation="Horizontal" Margin="0,10,0,0">
+                                            <Label
+                                            Margin="0,2,5,0"
+                                            FontSize="12"
+                                            Text="&#xf3c5;"
+                                            TextColor="#666"
+                                            FontFamily="FontSolid"
+                                            />
+                                            <Label
+                                            FontSize="12"
+                                            TextColor="#666"
+                                            Text="{Binding Location1}"/>
+                                        </StackLayout>
+                                        <Label
+                                            Text="1.056.279đ"
+                                            FontSize="16"
+                                            TextColor="#666"
+                                            FontAttributes="None"
+                                            TextDecorations="Strikethrough"/>
+                                        <Label
+                                            Text="1.003.465đ"
+                                            FontSize="18"
+                                            FontAttributes="Bold"
+                                            TextColor="{StaticResource Primary}"/>
+                                    </StackLayout>
+                                </StackLayout>
+                                <StackLayout Grid.Column="1">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="HotelDetail"/>
+                                    </StackLayout.GestureRecognizers>
+                                    <Frame Padding="0" CornerRadius="5">
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="HotelDetail"/>
+                                        </Frame.GestureRecognizers>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+                                            <Border Grid.Row="0"
+                                                    Background="{DynamicResource Primary}"
+                                                    ZIndex="1"
+                                                    StrokeShape="RoundRectangle 5,5,5,5"
+                                                    StrokeThickness="0"
+                                                    HorizontalOptions="StartAndExpand"
+                                                    VerticalOptions="StartAndExpand"
+                                                    Padding="8,5,8,3"
+                                                    Margin="10"
+                                                    HeightRequest="30">
+                                                <Label
+                                                        Text="-25%"
+                                                        TextColor="{DynamicResource White}"/>
+                                            </Border>
+                                            <Image Grid.Row="0" Grid.RowSpan="2" Source="{Binding ImageUrl2}" HorizontalOptions="FillAndExpand" Aspect="AspectFill" HeightRequest="140"/>
+                                        </Grid>
+
+                                    </Frame>
+                                    <StackLayout >
+                                        <Label
+                                            Margin="0,10,0,0"
+                                            Text="{Binding Name2}"
+                                            FontAttributes="Bold"/>
+                                        <Label
+                                            Margin="0,5,0,0"
+                                            Text="{Binding Rating2}"
+                                            FontFamily="FontSolid"
+                                            FontSize="12"
+                                            TextColor="{StaticResource OrangeWarning}"/>
+                                        <StackLayout Orientation="Horizontal" Margin="0,10,0,0">
+                                            <Label
+                                            Margin="0,2,5,0"
+                                            FontSize="12"
+                                            Text="&#xf3c5;"
+                                            TextColor="#666"
+                                            FontFamily="FontSolid"
+                                            />
+                                            <Label
+                                            FontSize="12"
+                                            TextColor="#666"
+                                            Text="{Binding Location2}"/>
+                                        </StackLayout>
+                                        <Label
+                                            Text="1.056.279đ"
+                                            FontSize="16"
+                                            TextColor="#666"
+                                            FontAttributes="None"
+                                            TextDecorations="Strikethrough"/>
+                                        <Label
+                                            Text="1.003.465đ"
+                                            FontSize="18"
+                                            FontAttributes="Bold"
+                                            TextColor="{StaticResource Primary}"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Grid>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+                <IndicatorView x:Name="indicatorView3"
+                   IndicatorColor="LightGray"
+                   SelectedIndicatorColor="{DynamicResource Primary}"
+                   HorizontalOptions="Center"/>
+            </StackLayout>
+            <StackLayout x:Name="Location" Padding="15,20,15,0">
+                <StackLayout>
+                    <Label 
+                            Text="Điểm đến nổi bật"
+                            FontSize="18"
+                            FontAttributes="Bold"/>
+                    <Label 
+                            Text="Hơn 1000+ khách sạn, homestay, Resorts,.. giá tốt trên khắp Việt Nam"
+                            FontSize="12"
+                            TextColor="{StaticResource Gray600}"
+                            FontAttributes="None"/>
+                </StackLayout>
+                <Grid Margin="0,10,0,20" RowSpacing="10" ColumnSpacing="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="120"/>
+                        <RowDefinition Height="120"/>
+                        <RowDefinition Height="120"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <Border Grid.Row="0"
+                            Grid.ColumnSpan="2" 
+                            StrokeShape="RoundRectangle 5,5,5,5" 
+                            StrokeThickness="0">
+
+                        <Image 
+                            Source="https://gostay.realtech.com.vn/assets/images/location/hue.jpg" 
+                            HorizontalOptions="FillAndExpand" 
+                            Aspect="AspectFill"/>
+                    </Border>
+                    <Frame Background="{DynamicResource Black}" Grid.Row="0" Grid.ColumnSpan="2" Opacity="0.3" ZIndex="9">
+                    </Frame>
+                    <StackLayout 
+                        Orientation="Vertical"
+                        HorizontalOptions="Start"
+                        VerticalOptions="Start"
+                        Margin="10,10,0,10"
+                        Grid.Row="0"
+                        Grid.ColumnSpan="2"
+                        ZIndex="10">
+                        <Label 
+                            Text="Huế"
+                            TextColor="{DynamicResource White}"
+                            FontSize="18"
+                            FontAttributes="Bold"/>
+                        <Label 
+                            Text="126,305 lượt khách"
+                            TextColor="{DynamicResource White}"
+                            FontSize="14"
+                            FontAttributes="Bold"/>
+                    </StackLayout>
+
+                    <Border Grid.Row="1" Grid.RowSpan="2" StrokeShape="RoundRectangle 5,5,5,5" StrokeThickness="0">
+                        <Image 
+                            Source="https://gostay.realtech.com.vn/assets/images/location/ninh-binh.jpg" 
+                            HorizontalOptions="FillAndExpand" 
+                            Aspect="AspectFill"/>
+                    </Border>
+                    <Frame Background="{DynamicResource Black}" Grid.Row="1" Grid.RowSpan="2" Opacity="0.3" ZIndex="9">
+                    </Frame>
+                    <StackLayout 
+                        Orientation="Vertical"
+                        Grid.Row="1"
+                        HorizontalOptions="Start"
+                        VerticalOptions="Start"
+                        Margin="10,10,0,10"
+                        ZIndex="10">
+                        <Label 
+                            Text="Ninh Bình"
+                            TextColor="{DynamicResource White}"
+                            FontSize="18"
+                            FontAttributes="Bold"/>
+                        <Label 
+                            Text="126,305 lượt khách"
+                            TextColor="{DynamicResource White}"
+                            FontSize="14"
+                            FontAttributes="Bold"/>
+                    </StackLayout>
+
+                    <Border 
+                        Grid.Row="1" 
+                        Grid.RowSpan="1"
+                        Grid.Column="1" 
+                        StrokeShape="RoundRectangle 5,5,5,5" 
+                        StrokeThickness="0">
+                        <Image 
+                            Source="https://gostay.realtech.com.vn/assets/images/location/sapa.jpg" 
+                            HorizontalOptions="FillAndExpand" 
+                            Aspect="AspectFill"/>
+                    </Border>
+                    <Frame Background="{DynamicResource Black}" Grid.Row="1" Grid.Column="1" Grid.RowSpan="1" Opacity="0.3" ZIndex="9">
+                    </Frame>
+                    <StackLayout 
+                        Orientation="Vertical"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        HorizontalOptions="Start"
+                        VerticalOptions="Start"
+                        Margin="10,10,0,10"
+                        ZIndex="10">
+                        <Label 
+                            Text="Sapa"
+                            TextColor="{DynamicResource White}"
+                            FontSize="18"
+                            FontAttributes="Bold"/>
+                        <Label 
+                            Text="126,305 lượt khách"
+                            TextColor="{DynamicResource White}"
+                            FontSize="14"
+                            FontAttributes="Bold"/>
+                    </StackLayout>
+                    <Border 
+                        Grid.Row="2" 
+                        Grid.RowSpan="1"
+                        Grid.Column="1"
+                        StrokeShape="RoundRectangle 5,5,5,5" 
+                        StrokeThickness="0">
+                        <Image 
+                            Source="https://gostay.realtech.com.vn/assets/images/location/nha-trang.jpg" 
+                            HorizontalOptions="FillAndExpand" 
+                            Aspect="AspectFill"/>
+                    </Border>
+                    <Frame Background="{DynamicResource Black}" Grid.Row="2" Grid.Column="1" Grid.RowSpan="1" Opacity="0.3" ZIndex="9">
+                    </Frame>
+                    <StackLayout 
+                        Orientation="Vertical"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        HorizontalOptions="Start"
+                        VerticalOptions="Start"
+                        Margin="10,10,0,10"
+                        ZIndex="10">
+                        <Label 
+                            Text="Nha Trang"
+                            TextColor="{DynamicResource White}"
+                            FontSize="18"
+                            FontAttributes="Bold"/>
+                        <Label 
+                            Text="126,305 lượt khách"
+                            TextColor="{DynamicResource White}"
+                            FontSize="14"
+                            FontAttributes="Bold"/>
+                    </StackLayout>
+                </Grid>
+                <Border  
+                        WidthRequest="160"
+                        HeightRequest="45"
+                        StrokeShape="RoundRectangle 5,5,5,5"
+                        Stroke="{DynamicResource Black}"
+                        Padding="2">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Button
+                            x:Name="CounterBtn2"
+                            Text="Xem tất cả"
+                            Margin="-12,-5,0,0"
+                            Background="White"
+                            BorderColor="White"
+                            TextColor="{DynamicResource Black}"
+                            SemanticProperties.Hint="Counts the number of times you click"
+                            VerticalOptions="Center"
+                            Clicked="OnCounterClicked"/>
+                        <Label
+                            FontSize="16"
+                            Margin="-2,10,0,0"
+                            Text="&#xf061;"
+                            TextColor="{DynamicResource Black}"
+                            FontFamily="FontSolid"
+                            ZIndex="99"
+                            />
+                    </StackLayout>
+                </Border>
+
+            </StackLayout>
+
+            <StackLayout x:Name="Tour" Padding="15,20,15,20">
+                <StackLayout>
+                    <Label 
+                            Text="Khách sạn đang thịnh hành"
+                            FontSize="18"
+                            FontAttributes="Bold"/>
+                    <Label 
+                            Text="Hơn 1000+ khách sạn, homestay, Resorts,.. giá tốt trên khắp Việt Nam"
+                            FontSize="12"
+                            TextColor="{StaticResource Gray600}"
+                            FontAttributes="None"/>
+                </StackLayout>
+                <CarouselView HeightRequest="300" ItemsSource="{Binding Monkeys}" x:Name="myCarouselView4" IndicatorView="indicatorView4" Margin="0,20,0,0">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid HorizontalOptions="FillAndExpand" ColumnSpacing="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Grid.Column="0">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="ItemDetail"/>
+                                    </StackLayout.GestureRecognizers>
+                                    <Frame Padding="0" CornerRadius="5">
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="ItemDetail"/>
+                                        </Frame.GestureRecognizers>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+                                            <Border Grid.Row="0"
+                                                    Background="{DynamicResource Primary}"
+                                                    ZIndex="1"
+                                                    StrokeShape="RoundRectangle 5,5,5,5"
+                                                    StrokeThickness="0"
+                                                    HorizontalOptions="StartAndExpand"
+                                                    VerticalOptions="StartAndExpand"
+                                                    Padding="8,5,8,3"
+                                                    Margin="10"
+                                                    HeightRequest="30">
+                                                <Label
+                                                        Text="-25%"
+                                                        TextColor="{DynamicResource White}"/>
+                                            </Border>
+                                            <Image Grid.Row="0" Grid.RowSpan="2" Source="{Binding ImageUrl1}" HorizontalOptions="FillAndExpand" Aspect="AspectFill" HeightRequest="140"/>
+                                        </Grid>
+                                    </Frame>
+                                    <StackLayout >
+                                        <Label
+                                            Margin="0,10,0,0"
+                                            Text="{Binding Name1}"
+                                            FontAttributes="Bold"/>
+                                        <Label
+                                            Margin="0,5,0,0"
+                                            Text="{Binding Rating1}"
+                                            FontFamily="FontSolid"
+                                            FontSize="12"
+                                            TextColor="{StaticResource OrangeWarning}"/>
+                                        <StackLayout Orientation="Horizontal" Margin="0,10,0,0">
+                                            <Label
+                                            Margin="0,2,5,0"
+                                            FontSize="12"
+                                            Text="&#xf3c5;"
+                                            TextColor="#666"
+                                            FontFamily="FontSolid"
+                                            />
+                                            <Label
+                                            FontSize="12"
+                                            TextColor="#666"
+                                            Text="{Binding Location1}"/>
+                                        </StackLayout>
+                                        <Label
+                                            Text="1.056.279đ"
+                                            FontSize="16"
+                                            TextColor="#666"
+                                            FontAttributes="None"
+                                            TextDecorations="Strikethrough"/>
+                                        <Label
+                                            Text="1.003.465đ"
+                                            FontSize="18"
+                                            FontAttributes="Bold"
+                                            TextColor="{StaticResource Primary}"/>
+                                    </StackLayout>
+                                </StackLayout>
+                                <StackLayout Grid.Column="1">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="ItemDetail"/>
+                                    </StackLayout.GestureRecognizers>
+                                    <Frame Padding="0" CornerRadius="5">
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="ItemDetail"/>
+                                        </Frame.GestureRecognizers>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+                                            <Border Grid.Row="0"
+                                                    Background="{DynamicResource Primary}"
+                                                    ZIndex="1"
+                                                    StrokeShape="RoundRectangle 5,5,5,5"
+                                                    StrokeThickness="0"
+                                                    HorizontalOptions="StartAndExpand"
+                                                    VerticalOptions="StartAndExpand"
+                                                    Padding="8,5,8,3"
+                                                    Margin="10"
+                                                    HeightRequest="30">
+                                                <Label
+                                                        Text="-25%"
+                                                        TextColor="{DynamicResource White}"/>
+                                            </Border>
+                                            <Image Grid.Row="0" Grid.RowSpan="2" Source="{Binding ImageUrl2}" HorizontalOptions="FillAndExpand" Aspect="AspectFill" HeightRequest="140"/>
+                                        </Grid>
+
+                                    </Frame>
+                                    <StackLayout >
+                                        <Label
+                                            Margin="0,10,0,0"
+                                            Text="{Binding Name2}"
+                                            FontAttributes="Bold"/>
+                                        <Label
+                                            Margin="0,5,0,0"
+                                            Text="{Binding Rating2}"
+                                            FontFamily="FontSolid"
+                                            FontSize="12"
+                                            TextColor="{StaticResource OrangeWarning}"/>
+                                        <StackLayout Orientation="Horizontal" Margin="0,10,0,0">
+                                            <Label
+                                            Margin="0,2,5,0"
+                                            FontSize="12"
+                                            Text="&#xf3c5;"
+                                            TextColor="#666"
+                                            FontFamily="FontSolid"
+                                            />
+                                            <Label
+                                            FontSize="12"
+                                            TextColor="#666"
+                                            Text="{Binding Location2}"/>
+                                        </StackLayout>
+                                        <Label
+                                            Text="1.056.279đ"
+                                            FontSize="16"
+                                            TextColor="#666"
+                                            FontAttributes="None"
+                                            TextDecorations="Strikethrough"/>
+                                        <Label
+                                            Text="1.003.465đ"
+                                            FontSize="18"
+                                            FontAttributes="Bold"
+                                            TextColor="{StaticResource Primary}"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Grid>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+                <IndicatorView x:Name="indicatorView4"
+                   IndicatorColor="LightGray"
+                   SelectedIndicatorColor="{DynamicResource Primary}"
+                   HorizontalOptions="Center"/>
+            </StackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
+    
+    
+    

@@ -54,12 +54,16 @@
 	  <None Remove="Resources\Images\hotel\img_m.jpg" />
 	  <None Remove="Resources\Images\icon\airplane.png" />
 	  <None Remove="Resources\Images\icon\but.png" />
+	  <None Remove="Resources\Images\icon\clipboard.png" />
+	  <None Remove="Resources\Images\icon\discover.png" />
 	  <None Remove="Resources\Images\icon\noon.png" />
+	  <None Remove="Resources\Images\icon\offer.png" />
 	  <None Remove="Resources\Images\icon\open.png" />
 	  <None Remove="Resources\Images\icon\pape.png" />
 	  <None Remove="Resources\Images\icon\send.png" />
 	  <None Remove="Resources\Images\icon\star.png" />
 	  <None Remove="Resources\Images\icon\star_empty.png" />
+	  <None Remove="Resources\Images\icon\user.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -68,12 +72,16 @@
 	  <MauiImage Include="Resources\Images\hotel\img_m.jpg" />
 	  <MauiImage Include="Resources\Images\icon\airplane.png" />
 	  <MauiImage Include="Resources\Images\icon\but.png" />
+	  <MauiImage Include="Resources\Images\icon\clipboard.png" />
+	  <MauiImage Include="Resources\Images\icon\discover.png" />
 	  <MauiImage Include="Resources\Images\icon\noon.png" />
+	  <MauiImage Include="Resources\Images\icon\offer.png" />
 	  <MauiImage Include="Resources\Images\icon\open.png" />
 	  <MauiImage Include="Resources\Images\icon\pape.png" />
 	  <MauiImage Include="Resources\Images\icon\send.png" />
 	  <MauiImage Include="Resources\Images\icon\star.png" />
 	  <MauiImage Include="Resources\Images\icon\star_empty.png" />
+	  <MauiImage Include="Resources\Images\icon\user.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -81,6 +89,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Homepage.xaml.cs">
+	    <DependentUpon>Homepage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Welcome.xaml.cs">
 	    <DependentUpon>Welcome.xaml</DependentUpon>
 	  </Compile>
@@ -112,6 +123,12 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="PromotionTourDetail.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\MainHotels.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\SearchCollapse.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

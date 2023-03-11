@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="goStay.SearchCollapse"
+             x:Class="goStay.Views.SearchCollapse"
              xmlns:viewModels="clr-namespace:goStay.ViewModels"             
              Title="Bạn muốn đi đâu?">
     <ContentPage.BindingContext>
@@ -47,7 +47,7 @@
                                                 <Label 
                                                FontSize="12"
                                                    Text="{Binding Location}"
-                                                   FontAttributes="Italic"/>    
+                                                   FontAttributes="Italic"/>
                                             </VerticalStackLayout>
                                         </StackLayout>
                                     </Grid>
