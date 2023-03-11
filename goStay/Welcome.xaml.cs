@@ -10,7 +10,7 @@ public partial class Welcome : ContentPage
     private async void OnCounterClicked(object sender, EventArgs e)
     {
 
-        await Navigation.PushAsync(new AirPlane());
+        await Navigation.PushAsync(new Welcome());
     }
 }
 
