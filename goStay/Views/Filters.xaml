@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:goStay.ViewModels"
+             x:Class="goStay.Filters"
+             Title="Filters">
+    <ContentPage.BindingContext>
+        <viewmodels:FilterModerView />
+    </ContentPage.BindingContext>
+    <ScrollView>
+    <StackLayout Orientation="Vertical" Padding="15,0,15,0" Spacing="8">
+        <StackLayout Orientation="Horizontal" Margin="0,20,0,0">
+            <Label 
+                FontAttributes="Bold"
+                FontSize="14"
+                Text="Bộ lọc"/>
+            <Label 
+                HorizontalOptions="EndAndExpand"
+                TextColor="{StaticResource Blue100}"
+                FontSize="12"
+                Text="Xóa tất cả bộ lọc"/>
+        </StackLayout>
+        <StackLayout  Margin="0,3,0,0" HeightRequest="1" Background="{StaticResource Gray100}">
+        </StackLayout>
+
+        <Label 
+                FontAttributes="Bold"
+                FontSize="14"
+                Text=" Khoảng giá"/>
+        <Label 
+                Margin="12,0,0,0"
+                x:Name="lbPrice"
+                FontSize="14"
+                Text="0đ - 5.000.000+ đ"/>
+        <Slider 
+                Margin="0,3,0,0"
+                x:Name="sldPrice"
+                ValueChanged="Slider_ValueChanged"
+                HorizontalOptions="FillAndExpand"
+                HeightRequest="5"
+                Minimum="0" 
+                Maximum="20">
+
+        </Slider>
+        <Label  
+                Margin="0,12,0,0"
+                FontAttributes="Bold"
+                FontSize="14"
+                Text=" Hãng bay"/>
+        <ScrollView>
+            <ListView  ItemsSource="{Binding myPlane}" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell >
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="1"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions >
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Grid.Column="0" Grid.Row="0"
+                                       Source="{Binding image}"/>
+                            <Label Grid.Column="1" Grid.Row="0"
+                                   Text="{Binding Title}"
+                                   FontSize="12"
+                                   Margin="5,8,0,0"/>
+                            <CheckBox Grid.Column="2" Grid.Row="0" HorizontalOptions="EndAndExpand">
+                            </CheckBox>
+                            <Line  Grid.Column="0" Grid.Row="1" HeightRequest="1"
+                                BackgroundColor="{StaticResource Gray300}" Grid.ColumnSpan="3"/>
+                        </Grid>
+
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+          
+        </ListView>
+        </ScrollView>
+
+        <Label
+            FontAttributes="Bold"
+            FontSize="14"
+            Text="Thời gian cất cánh"/>
+
+            <Grid RowSpacing="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <CheckBox Grid.Column="0" Grid.Row="0" HorizontalOptions="StartAndExpand" >
+                </CheckBox>
+                <Label Grid.Column="1" Grid.Row="0"
+                                   Style="{StaticResource lblogin}"
+                                   Text="Sáng sớm ( 0:00 - 06:00)">
+                </Label>
+                
+                <CheckBox Grid.Column="0" Grid.Row="1" x:Name="checkBox" HorizontalOptions="StartAndExpand">
+                </CheckBox>
+                <Label Grid.Column="1" Grid.Row="1"
+                                   Style="{StaticResource lblogin}"
+                                   Text="Buổi sáng ( 06:00 - 12:00)"/>
+
+                <CheckBox Grid.Column="0" Grid.Row="2" HorizontalOptions="StartAndExpand">
+                </CheckBox>
+                
+                <Label Grid.Column="2" Grid.Row="2"
+                                   Style="{StaticResource lblogin}"
+                                   Text="Buổi chiều ( 12:00 - 18:00)"/>
+
+                <CheckBox Grid.Column="0" Grid.Row="3" HorizontalOptions="StartAndExpand">
+                </CheckBox>
+                <Label Grid.Column="3" Grid.Row="3"
+                                  Style="{StaticResource lblogin}"
+                                   Text="Buổi tối ( 18:00 - 24:00)"/>
+            </Grid>
+
+            <StackLayout  Margin="0,3,0,0" HeightRequest="1" Background="{StaticResource Gray100}">
+            </StackLayout>
+
+            <Label 
+                FontAttributes="Bold"
+                FontSize="14"
+                Text="Hạng vé"/>
+
+            <Grid RowSpacing="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <CheckBox Grid.Column="0" Grid.Row="0" HorizontalOptions="StartAndExpand" >
+                </CheckBox>
+                <Label Grid.Column="1" Grid.Row="0"
+                                  Style="{StaticResource lblogin}"
+                                   Text="Phổ thông"/>
+
+                <CheckBox Grid.Column="0" Grid.Row="1" HorizontalOptions="StartAndExpand" >
+                </CheckBox>
+                <Label Grid.Column="1" Grid.Row="1"
+                                   Style="{StaticResource lblogin}"
+                                   Text="Phổ thông đặc biệt"/>
+
+                <CheckBox Grid.Column="0" Grid.Row="2" HorizontalOptions="StartAndExpand" >
+                </CheckBox>
+                <Label Grid.Column="2" Grid.Row="2"
+                                   Style="{StaticResource lblogin}"
+                                   Text="Phổ thông tiết kiệm"/>
+
+                <CheckBox Grid.Column="0" Grid.Row="3" HorizontalOptions="StartAndExpand" >
+                </CheckBox>
+                <Label Grid.Column="3" Grid.Row="3"
+                                   Style="{StaticResource lblogin}"
+                                   Text="Thương gia"/>
+
+            </Grid>
+            <StackLayout  Margin="0,3,0,0" HeightRequest="1" Background="{StaticResource Gray100}">
+            </StackLayout>
+            <Label 
+                FontAttributes="Bold"
+                FontSize="14"
+                Text="Điểm dừng"/>
+
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <CheckBox Grid.Column="0" Grid.Row="0" HorizontalOptions="StartAndExpand" >
+                </CheckBox>
+                <Label Grid.Column="1" Grid.Row="0"
+                                   Style="{StaticResource lblogin}"
+                                   Text="Bay thẳng"/>
+
+                <CheckBox Grid.Column="0" Grid.Row="1" HorizontalOptions="StartAndExpand" >
+                </CheckBox>
+                <Label Grid.Column="1" Grid.Row="1"
+                                   Style="{StaticResource lblogin}"
+                                   Text="Nối chuyến"/>
+            </Grid>
+            <StackLayout  Margin="0,3,0,0" HeightRequest="1" Background="{StaticResource Gray100}">
+            </StackLayout>
+            <Button 
+                FontSize="12"
+                HeightRequest="35"
+                Text="Lọc"/>
+
+
+
+        </StackLayout>
+    </ScrollView> 
+</ContentPage>
