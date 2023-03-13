@@ -1,4 +1,6 @@
-﻿namespace goStay;
+﻿using goStay.Views;
+
+namespace goStay;
 
 public partial class Welcome : ContentPage
 {
@@ -10,7 +12,7 @@ public partial class Welcome : ContentPage
     private async void OnCounterClicked(object sender, EventArgs e)
     {
 
-        await Navigation.PushAsync(new Welcome());
+        await Navigation.PushAsync(new TourList());
     }
 }
 

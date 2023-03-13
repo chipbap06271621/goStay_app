@@ -6,7 +6,7 @@ using System.Windows.Input;
 
 namespace goStay.ViewModels
 {
-    public class MonkeysViewModel : INotifyPropertyChanged
+    public class MonkeysViewModel 
     {
         readonly IList<Monkey> source;
 

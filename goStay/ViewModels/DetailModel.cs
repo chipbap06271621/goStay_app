@@ -7,7 +7,7 @@ using System.Windows.Input;
 using goStay.Models;
 namespace goStay.ViewModels
 {
-    public class DetailViewModel : INotifyPropertyChanged
+    public class DetailViewModel 
     {
         readonly IList<Images> source;
         readonly IList<Rooms> sourceRooms;

@@ -50,4 +50,10 @@
         public string Name { get; set; }
         public string Location { get; set; }
     }
+
+    public class Listtour
+    {
+        public string Title { get; set; }
+        public string image { get; set; }
+    }
 }

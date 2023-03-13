@@ -5,7 +5,7 @@ using goStay.Models;
 
 namespace goStay.ViewModels
 {
-    public class MonkeyDetailViewModel : IQueryAttributable, INotifyPropertyChanged
+    public class MonkeyDetailViewModel : IQueryAttributable
     {
         public Animal Monkey { get; private set; }
 

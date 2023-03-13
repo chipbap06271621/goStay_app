@@ -19,6 +19,7 @@
     <Color x:Key="Gray925">#1A1A1A</Color>
     <Color x:Key="Gray950">#141414</Color>
     <Color x:Key="Gray975">#0A0A0A</Color>
+    <Color x:Key="Blue100">#3E8EED</Color>
 
     <Color x:Key="BlackOverlay">#D0000000</Color>
     <Color x:Key="GreenSuccess">#2e7d32</Color>
@@ -38,6 +39,9 @@
     <SolidColorBrush x:Key="Gray600Brush" Color="{StaticResource Gray600}" />
     <SolidColorBrush x:Key="Gray900Brush" Color="{StaticResource Gray900}" />
     <SolidColorBrush x:Key="Gray950Brush" Color="{StaticResource Gray950}" />
+    <SolidColorBrush x:Key="Blue100Brush" Color="{StaticResource Blue100}" />
+
+
 
     <Color x:Key="Yellow100Accent">#F7B548</Color>
     <Color x:Key="Yellow200Accent">#FFD590</Color>

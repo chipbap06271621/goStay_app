@@ -3,10 +3,26 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="goStay.Views.TourList"
              Title="TourList">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <StackLayout>
+        <StackLayout Orientation="Horizontal" Margin="15,14,15,0">
+            <Label 
+                FontAttributes="Bold"
+                Margin="0,16,0,0"
+                Text="26 Tour du lịch tại Đà Nẵng"/>
+            <Button 
+                Clicked="Button_Clicked"
+                ImageSource="sort.png"
+                FontSize="12"
+                HorizontalOptions="EndAndExpand"
+                Text="Bộ lọc"/>
+
+
+
+        </StackLayout>
+            
+            
+        
+        
+        
+    </StackLayout>
 </ContentPage>

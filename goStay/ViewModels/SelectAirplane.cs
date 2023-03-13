@@ -8,7 +8,7 @@ using goStay.Models;
 
 namespace goStay.ViewModels
 {
-    public class SelectAirplane : INotifyPropertyChanged
+    public class SelectAirplane 
     {
         int itemCount = 10;
         const int MaximumItemCount = 50;

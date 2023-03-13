@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace goStay.ViewModels
 {
-    public class AnimalsViewModel : INotifyPropertyChanged
+    public class AnimalsViewModel
     {
         int itemCount = 10;
         const int MaximumItemCount = 50;
