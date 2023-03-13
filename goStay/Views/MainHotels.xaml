@@ -69,10 +69,17 @@
                                 <ColumnDefinition Width="100" />
                             </Grid.ColumnDefinitions>
                             <StackLayout  Grid.Column="0">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Filter"/>
+                                </StackLayout.GestureRecognizers>
                                 <Label Text="Số phòng, số khách" 
                                        TextColor="#666"
                                        Margin="0,0,0,-10"/>
-                                <Entry Placeholder="1 phòng, 2 người lớn, 0 trẻ em"/>
+                                <Entry Placeholder="1 phòng, 2 người lớn, 0 trẻ em">
+                                    <Entry.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Filter"/>
+                                    </Entry.GestureRecognizers>
+                                </Entry>
                             </StackLayout>
                             <Button  
                                     Grid.Column="1"

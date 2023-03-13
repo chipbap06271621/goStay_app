@@ -26,9 +26,9 @@ public partial class MainHotels : ContentPage
 
   
 
-    private void OnTapped2(object sender, TappedEventArgs e)
+    private async void Filter(object sender, TappedEventArgs e)
     {
-        Navigation.PushAsync(new SelectRoom());
+        await Navigation.PushAsync(new Filter());
     }
 
     private void AirPlane(object sender, TappedEventArgs e)
